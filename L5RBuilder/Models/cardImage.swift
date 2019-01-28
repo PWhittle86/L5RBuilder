@@ -18,7 +18,7 @@ class cardImage: NSObject{
     self.url = url
   }
   
-  class func downloadImages(cardDB: Realm){
+  class func downloadImages(){
     
     //Below should create an images folder when called.
     
@@ -35,6 +35,8 @@ class cardImage: NSObject{
       }
       NSLog("Document directory is \(filePath)")
     }
+    
+    
     
   }
   

@@ -96,11 +96,10 @@ class DBHelper{
         var counter = 0
         
         for card in json.records{
-          
-          //          Below doesn't work.
+  
           if self.isCardIdInCardDB(cardId: card.id) == true
           {
-            print("Card number \(counter) (\(card.id)), is already in the database.")
+            print("Card number \(counter) (\(card.id)), is already saved locally.")
           }
           else
           {
