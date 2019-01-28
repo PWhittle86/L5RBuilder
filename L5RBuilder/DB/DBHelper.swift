@@ -17,7 +17,7 @@ class DBHelper{
   var cardDBConfig = Realm.Configuration()
   
   private init(dbPath: String){
-
+    
     self.cardDBConfig.fileURL = cardDBConfig.fileURL!.deletingLastPathComponent().appendingPathComponent("\(dbPath).realm")
     
     do{
@@ -60,21 +60,19 @@ class DBHelper{
     }
   }
   
-  //This is breaking the app due to threading.
   //Return false if card id (name as string) is not in DB.
   func isCardIdInCardDB(cardId: String) -> Bool{
     
-    var cardInDb = false
+    //You need to declare a new instance of the realm EVERY TIME you want to use it when another realm is running on the main thread.
+    let myBackgroundRealm = try! Realm(configuration: self.cardDBConfig)
+    let queryResults = myBackgroundRealm.objects(Card.self).filter("id == '\(cardId)'")
     
-    DispatchQueue(label: "background").async {
-      let queryResults = self.cardDB.objects(Card.self).filter("id == \(cardId)")
-      if queryResults.count > 0{
-        cardInDb = true
-      } else {
-        cardInDb = false
-      }
+    if queryResults.count > 0{
+      return true
+    } else {
+      return false
     }
-    return cardInDb
+    
   }
   
   
@@ -99,12 +97,13 @@ class DBHelper{
         
         for card in json.records{
           
-          //Below doesn't work.
-//          if self.isCardIdInCardDB(cardId: card.id) == true{
-//
-//            print("Card number \(counter) (\(card.id)), is already in the database.")
-//
-//          } else {
+          //          Below doesn't work.
+          if self.isCardIdInCardDB(cardId: card.id) == true
+          {
+            print("Card number \(counter) (\(card.id)), is already in the database.")
+          }
+          else
+          {
             let dbCard = Card()
             dbCard.id = card.id
             dbCard.number = counter
@@ -119,7 +118,7 @@ class DBHelper{
               let prettyTrait = trait.capitalized
               dbCard.traits.append(prettyTrait)
             }
-          
+            
             let lastPackCardIndex = (card.pack_cards.count - 1) //This doesn't quite work atm. Way-of card images are being lost. Will do for the time being.
             
             //Optional strings
@@ -140,6 +139,7 @@ class DBHelper{
           }
           counter += 1
         }
+      }
       catch {
         print("Error: \(error)")
       }
