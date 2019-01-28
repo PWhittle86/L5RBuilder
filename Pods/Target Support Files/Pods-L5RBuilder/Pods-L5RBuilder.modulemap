@@ -1,0 +1,6 @@
+framework module Pods_L5RBuilder {
+  umbrella header "Pods-L5RBuilder-umbrella.h"
+
+  export *
+  module * { export * }
+}
