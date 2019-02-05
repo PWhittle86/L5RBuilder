@@ -21,7 +21,7 @@ class CardViewerVC: UIViewController {
 
 extension CardViewerVC: UICollectionViewDelegate, UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    let allCards = database.cardDB.objects(Card.self)
+    let allCards = database.DB.objects(Card.self)
     return allCards.count
   }
   
@@ -29,7 +29,7 @@ extension CardViewerVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardViewCell", for: indexPath)
     if let label = cell.viewWithTag(100) as? UILabel {
-      let allCards = database.cardDB.objects(Card.self)
+      let allCards = database.DB.objects(Card.self)
       label.text = allCards[indexPath[1]].name
     }
     return cell
