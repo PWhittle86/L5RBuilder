@@ -31,12 +31,10 @@ class DeckListVC: UIViewController {
     }
   }
 
-//  func optionalIntConverter(int: Int?) -> Int{
-//    if let optionalInt = int{
-//      return optionalInt
-//    } else {
-//      return 0
-//    }
-//  }
+  func downloadImages(){
+    let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("cardImages")
+    let pathURL = NSURL(string: path)
+  }
+  
   
 }

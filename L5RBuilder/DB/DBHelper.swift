@@ -30,7 +30,6 @@ class DBHelper{
     
     let cards = self.DB.objects(Card.self).filter("id == '\(cardID)'")
     return cards[0]
-    
   }
   
   //Save card to DB.
@@ -50,7 +49,6 @@ class DBHelper{
     let cards = backgroundRealm.objects(Card.self).filter("id == '\(card.id)'")
     
     if cards.count > 0{
-      
       let firstCard = cards[0]
       try! backgroundRealm.write {
         backgroundRealm.delete(firstCard)
@@ -89,7 +87,6 @@ func isCardIdInCardDB(cardId: String) -> Bool{
   } else {
     return false
   }
-  
 }
 
 func downloadCards(){
