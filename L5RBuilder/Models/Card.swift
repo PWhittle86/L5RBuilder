@@ -14,7 +14,8 @@ class Card: Object {
   @objc dynamic var number = 0
   @objc dynamic var clan = ""
   @objc dynamic var deckLimit = 0 //Max number of copies allowed in deck.
-  @objc dynamic var image: String? = nil //Array <packCard> //Includes image, flavor and originating pack.
+  @objc dynamic var imageURL: String? = nil //Array <packCard> //Includes image, flavor and originating pack.
+  @objc dynamic var imageSavedLocally = false
   @objc dynamic var flavorText: String? = nil
   @objc dynamic var originPack: String? = ""
   @objc dynamic public var name = ""
