@@ -34,8 +34,8 @@ class DBHelper{
   
   //Return all cards currently in db.
   func getAllCards() -> Results<Card>{
-    
-    return self.DB.objects(Card.self)
+    let backgroundRealm = try! Realm(configuration: self.cardDBConfig)
+    return backgroundRealm.objects(Card.self)
   }
   
   //Save card to DB.
