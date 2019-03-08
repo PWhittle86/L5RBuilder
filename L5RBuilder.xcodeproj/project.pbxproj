@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2209DAB72232A5E300755906 /* CardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209DAB62232A5E300755906 /* CardViewCell.swift */; };
+		2209DAC02232C64B00755906 /* L5RFont.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2209DABF2232C64B00755906 /* L5RFont.otf */; };
 		2209EE572195A9760080808E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209EE562195A9760080808E /* Card.swift */; };
 		222AE28021B19DA800C75868 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 222AE27F21B19DA800C75868 /* Podfile */; };
 		227021FA2195E638004F4E99 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227021F92195E638004F4E99 /* Deck.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		1EDB531658D6B33F3F968E6B /* Pods-L5RBuilder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L5RBuilder.release.xcconfig"; path = "Pods/Target Support Files/Pods-L5RBuilder/Pods-L5RBuilder.release.xcconfig"; sourceTree = "<group>"; };
 		2209DAB62232A5E300755906 /* CardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewCell.swift; sourceTree = "<group>"; };
+		2209DABF2232C64B00755906 /* L5RFont.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = L5RFont.otf; sourceTree = "<group>"; };
 		2209EE562195A9760080808E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		222AE27F21B19DA800C75868 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		227021F92195E638004F4E99 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
@@ -91,6 +93,14 @@
 			path = DeckListVC;
 			sourceTree = "<group>";
 		};
+		2209DABE2232C63C00755906 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2209DABF2232C64B00755906 /* L5RFont.otf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		2209EE542195A8DF0080808E /* VCs */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +152,7 @@
 		22E8791221944F63000EC7C3 /* L5RBuilder */ = {
 			isa = PBXGroup;
 			children = (
+				2209DABE2232C63C00755906 /* Resources */,
 				2279887821BAC7F700F696F7 /* DB */,
 				2209EE552195A8EC0080808E /* Models */,
 				2209EE542195A8DF0080808E /* VCs */,
@@ -262,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22E8792021944F66000EC7C3 /* LaunchScreen.storyboard in Resources */,
+				2209DAC02232C64B00755906 /* L5RFont.otf in Resources */,
 				22E8791D21944F66000EC7C3 /* Assets.xcassets in Resources */,
 				222AE28021B19DA800C75868 /* Podfile in Resources */,
 				22E8791B21944F63000EC7C3 /* Main.storyboard in Resources */,

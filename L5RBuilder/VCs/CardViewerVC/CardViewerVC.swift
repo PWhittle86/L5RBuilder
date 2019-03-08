@@ -11,22 +11,23 @@ import RealmSwift
 
 class CardViewerVC: UIViewController {
     
+    @IBOutlet weak var navBar: UINavigationBar!
+    
     let database = DBHelper.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        makeNavBarTransparent()
     }
     
-    func shouldShowCellLabel(cardCell: CardViewCell) -> Bool{
+    func makeNavBarTransparent(){
         
-        if cardCell.cardImageView.image == nil
-        {
-            return true
-        }
-        else
-        {
-            return false
-        }
+        let transparentPixel = UIImage(named: "TransparentPixel")
+        self.navBar.setBackgroundImage(transparentPixel, for: UIBarMetrics.default)
+        self.navBar.isOpaque = false
+        self.navBar.shadowImage = transparentPixel
+        self.navBar.backgroundColor = UIColor.clear
+        self.navBar.isTranslucent = true
     }
     
 }

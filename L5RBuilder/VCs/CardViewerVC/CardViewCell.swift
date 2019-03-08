@@ -15,7 +15,8 @@ class CardViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        cardLabel.font = UIFont(name: cardLabel.font.fontName, size: 15)
+        cardLabel.font = UIFont(name: "brushtipTexeTRIAL", size: 20)
+        
     }
     
     func showCardLabelIfNoImage(card: Card){
