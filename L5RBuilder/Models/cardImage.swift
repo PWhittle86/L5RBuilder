@@ -17,27 +17,5 @@ class cardImage: NSObject{
   init(url: NSURL) {
     self.url = url
   }
-  
-  class func downloadImages(){
     
-    //Below should create an images folder when called.
-    
-    let fileManager = FileManager.default
-
-    if let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first{
-      let filePath = documentDirectory.appendingPathComponent("images")
-      if !fileManager.fileExists(atPath: filePath.path) {
-        do {
-          try fileManager.createDirectory(atPath: filePath.path, withIntermediateDirectories: true, attributes: nil)
-        } catch {
-          NSLog("Couldn't create document directory")
-        }
-      }
-      NSLog("Document directory is \(filePath)")
-    }
-    
-    
-    
-  }
-  
 }

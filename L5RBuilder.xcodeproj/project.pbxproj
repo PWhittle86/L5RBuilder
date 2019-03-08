@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2209DAB72232A5E300755906 /* CardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209DAB62232A5E300755906 /* CardViewCell.swift */; };
 		2209EE572195A9760080808E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209EE562195A9760080808E /* Card.swift */; };
 		222AE28021B19DA800C75868 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 222AE27F21B19DA800C75868 /* Podfile */; };
 		227021FA2195E638004F4E99 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227021F92195E638004F4E99 /* Deck.swift */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		1EDB531658D6B33F3F968E6B /* Pods-L5RBuilder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L5RBuilder.release.xcconfig"; path = "Pods/Target Support Files/Pods-L5RBuilder/Pods-L5RBuilder.release.xcconfig"; sourceTree = "<group>"; };
+		2209DAB62232A5E300755906 /* CardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewCell.swift; sourceTree = "<group>"; };
 		2209EE562195A9760080808E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		222AE27F21B19DA800C75868 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		227021F92195E638004F4E99 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
@@ -72,11 +74,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2209EE542195A8DF0080808E /* VCs */ = {
+		2209DAB52232A5A100755906 /* CardViewerVC */ = {
+			isa = PBXGroup;
+			children = (
+				22E8791721944F63000EC7C3 /* CardViewerVC.swift */,
+				2209DAB62232A5E300755906 /* CardViewCell.swift */,
+			);
+			path = CardViewerVC;
+			sourceTree = "<group>";
+		};
+		2209DAB82232C05000755906 /* DeckListVC */ = {
 			isa = PBXGroup;
 			children = (
 				22E8791521944F63000EC7C3 /* DeckListVC.swift */,
-				22E8791721944F63000EC7C3 /* CardViewerVC.swift */,
+			);
+			path = DeckListVC;
+			sourceTree = "<group>";
+		};
+		2209EE542195A8DF0080808E /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				2209DAB82232C05000755906 /* DeckListVC */,
+				2209DAB52232A5A100755906 /* CardViewerVC */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -314,6 +333,7 @@
 			files = (
 				22E8791821944F63000EC7C3 /* CardViewerVC.swift in Sources */,
 				22E8791421944F63000EC7C3 /* AppDelegate.swift in Sources */,
+				2209DAB72232A5E300755906 /* CardViewCell.swift in Sources */,
 				2279887A21BAC99000F696F7 /* DBHelper.swift in Sources */,
 				227021FA2195E638004F4E99 /* Deck.swift in Sources */,
 				22E8791621944F63000EC7C3 /* DeckListVC.swift in Sources */,

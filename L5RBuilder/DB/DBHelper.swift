@@ -34,11 +34,12 @@ class DBHelper{
     
     //Return all cards currently in db.
     func getAllCards() -> Results<Card>{
-//        let backgroundRealm = try! Realm(configuration: self.cardDBConfig)
+        
         return self.DB.objects(Card.self)
     }
     
     func getAllUnsavedImages() -> Results<Card>{
+        
         let cards = self.DB.objects(Card.self).filter("imageSavedLocally == \(false)")
         return cards
     }
@@ -129,13 +130,15 @@ class DBHelper{
             do {
                 let decoder = JSONDecoder()
                 let json = try decoder.decode(l5rJSON.self, from: data)
+                
+                //Should probably get rid of this.
                 var counter = 0
                 
                 for card in json.records{
                     
                     if self.isCardIdInCardDB(cardId: card.id) == true
                     {
-                        print("Card number \(counter) (\(card.id)), is already saved locally.")
+//                        print("Card number \(counter) (\(card.id)), is already saved locally.")
                     }
                     else
                     {
