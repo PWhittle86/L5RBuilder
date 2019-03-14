@@ -10,13 +10,16 @@
 		2209DAB72232A5E300755906 /* CardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209DAB62232A5E300755906 /* CardViewCell.swift */; };
 		2209DAC02232C64B00755906 /* L5RFont.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2209DABF2232C64B00755906 /* L5RFont.otf */; };
 		2209EE572195A9760080808E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209EE562195A9760080808E /* Card.swift */; };
+		2216B901223300FB0070AE93 /* DeckListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2216B900223300FB0070AE93 /* DeckListVC.swift */; };
+		2216B903223309C40070AE93 /* DeckListVCAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2216B902223309C40070AE93 /* DeckListVCAddCell.swift */; };
 		222AE28021B19DA800C75868 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 222AE27F21B19DA800C75868 /* Podfile */; };
 		227021FA2195E638004F4E99 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227021F92195E638004F4E99 /* Deck.swift */; };
 		2279887A21BAC99000F696F7 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2279887921BAC99000F696F7 /* DBHelper.swift */; };
 		2279887C21BACB2E00F696F7 /* APICardCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2279887B21BACB2E00F696F7 /* APICardCodes.swift */; };
 		2288C1CC21CA515A009842B5 /* cardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2288C1CB21CA515A009842B5 /* cardImage.swift */; };
+		22ABD2BF22394D7900BB3AB6 /* DeckListVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ABD2BE22394D7900BB3AB6 /* DeckListVCCell.swift */; };
+		22ABD2C122394FE000BB3AB6 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ABD2C022394FE000BB3AB6 /* plus.png */; };
 		22E8791421944F63000EC7C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8791321944F63000EC7C3 /* AppDelegate.swift */; };
-		22E8791621944F63000EC7C3 /* DeckListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8791521944F63000EC7C3 /* DeckListVC.swift */; };
 		22E8791821944F63000EC7C3 /* CardViewerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8791721944F63000EC7C3 /* CardViewerVC.swift */; };
 		22E8791B21944F63000EC7C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E8791921944F63000EC7C3 /* Main.storyboard */; };
 		22E8791D21944F66000EC7C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22E8791C21944F66000EC7C3 /* Assets.xcassets */; };
@@ -39,15 +42,19 @@
 		2209DAB62232A5E300755906 /* CardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewCell.swift; sourceTree = "<group>"; };
 		2209DABF2232C64B00755906 /* L5RFont.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = L5RFont.otf; sourceTree = "<group>"; };
 		2209EE562195A9760080808E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		2216B900223300FB0070AE93 /* DeckListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckListVC.swift; sourceTree = "<group>"; };
+		2216B902223309C40070AE93 /* DeckListVCAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckListVCAddCell.swift; sourceTree = "<group>"; };
 		222AE27F21B19DA800C75868 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		227021F92195E638004F4E99 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		2279887921BAC99000F696F7 /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		2279887B21BACB2E00F696F7 /* APICardCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICardCodes.swift; sourceTree = "<group>"; };
 		2288C1CB21CA515A009842B5 /* cardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardImage.swift; sourceTree = "<group>"; };
 		2288C1D321CA5E50009842B5 /* L5RBuilderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = L5RBuilderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		22ABD2BE22394D7900BB3AB6 /* DeckListVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckListVCCell.swift; sourceTree = "<group>"; };
+		22ABD2C022394FE000BB3AB6 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		22ABD2C52239630F00BB3AB6 /* L5RBuilder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = L5RBuilder.entitlements; sourceTree = "<group>"; };
 		22E8791021944F63000EC7C3 /* L5RBuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = L5RBuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E8791321944F63000EC7C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		22E8791521944F63000EC7C3 /* DeckListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckListVC.swift; sourceTree = "<group>"; };
 		22E8791721944F63000EC7C3 /* CardViewerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewerVC.swift; sourceTree = "<group>"; };
 		22E8791A21944F63000EC7C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22E8791C21944F66000EC7C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,7 +95,9 @@
 		2209DAB82232C05000755906 /* DeckListVC */ = {
 			isa = PBXGroup;
 			children = (
-				22E8791521944F63000EC7C3 /* DeckListVC.swift */,
+				2216B900223300FB0070AE93 /* DeckListVC.swift */,
+				2216B902223309C40070AE93 /* DeckListVCAddCell.swift */,
+				22ABD2BE22394D7900BB3AB6 /* DeckListVCCell.swift */,
 			);
 			path = DeckListVC;
 			sourceTree = "<group>";
@@ -96,6 +105,7 @@
 		2209DABE2232C63C00755906 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				22ABD2C022394FE000BB3AB6 /* plus.png */,
 				2209DABF2232C64B00755906 /* L5RFont.otf */,
 			);
 			path = Resources;
@@ -106,6 +116,7 @@
 			children = (
 				2209DAB82232C05000755906 /* DeckListVC */,
 				2209DAB52232A5A100755906 /* CardViewerVC */,
+				22ABD2C4223955E500BB3AB6 /* DeckBuilderVC */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -127,6 +138,13 @@
 				2279887921BAC99000F696F7 /* DBHelper.swift */,
 			);
 			path = DB;
+			sourceTree = "<group>";
+		};
+		22ABD2C4223955E500BB3AB6 /* DeckBuilderVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DeckBuilderVC;
 			sourceTree = "<group>";
 		};
 		22E8790721944F63000EC7C3 = {
@@ -152,6 +170,7 @@
 		22E8791221944F63000EC7C3 /* L5RBuilder */ = {
 			isa = PBXGroup;
 			children = (
+				22ABD2C52239630F00BB3AB6 /* L5RBuilder.entitlements */,
 				2209DABE2232C63C00755906 /* Resources */,
 				2279887821BAC7F700F696F7 /* DB */,
 				2209EE552195A8EC0080808E /* Models */,
@@ -238,6 +257,11 @@
 					};
 					22E8790F21944F63000EC7C3 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -277,6 +301,7 @@
 				22E8791D21944F66000EC7C3 /* Assets.xcassets in Resources */,
 				222AE28021B19DA800C75868 /* Podfile in Resources */,
 				22E8791B21944F63000EC7C3 /* Main.storyboard in Resources */,
+				22ABD2C122394FE000BB3AB6 /* plus.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,11 +370,13 @@
 			files = (
 				22E8791821944F63000EC7C3 /* CardViewerVC.swift in Sources */,
 				22E8791421944F63000EC7C3 /* AppDelegate.swift in Sources */,
+				22ABD2BF22394D7900BB3AB6 /* DeckListVCCell.swift in Sources */,
 				2209DAB72232A5E300755906 /* CardViewCell.swift in Sources */,
 				2279887A21BAC99000F696F7 /* DBHelper.swift in Sources */,
 				227021FA2195E638004F4E99 /* Deck.swift in Sources */,
-				22E8791621944F63000EC7C3 /* DeckListVC.swift in Sources */,
+				2216B903223309C40070AE93 /* DeckListVCAddCell.swift in Sources */,
 				2209EE572195A9760080808E /* Card.swift in Sources */,
+				2216B901223300FB0070AE93 /* DeckListVC.swift in Sources */,
 				2279887C21BACB2E00F696F7 /* APICardCodes.swift in Sources */,
 				2288C1CC21CA515A009842B5 /* cardImage.swift in Sources */,
 			);
@@ -546,6 +573,7 @@
 			baseConfigurationReference = DA721619B974D438BABC88EC /* Pods-L5RBuilder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2LN4RF2NZP;
 				INFOPLIST_FILE = L5RBuilder/Info.plist;
@@ -553,8 +581,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cityfm.L5RBuilder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PeteWhittle.L5RBuilder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -565,6 +594,7 @@
 			baseConfigurationReference = 1EDB531658D6B33F3F968E6B /* Pods-L5RBuilder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2LN4RF2NZP;
 				INFOPLIST_FILE = L5RBuilder/Info.plist;
@@ -572,8 +602,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cityfm.L5RBuilder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PeteWhittle.L5RBuilder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

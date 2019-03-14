@@ -17,17 +17,6 @@ class CardViewerVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeNavBarTransparent()
-    }
-    
-    func makeNavBarTransparent(){
-        
-        let transparentPixel = UIImage(named: "TransparentPixel")
-        self.navBar.setBackgroundImage(transparentPixel, for: UIBarMetrics.default)
-        self.navBar.isOpaque = false
-        self.navBar.shadowImage = transparentPixel
-        self.navBar.backgroundColor = UIColor.clear
-        self.navBar.isTranslucent = true
     }
     
 }

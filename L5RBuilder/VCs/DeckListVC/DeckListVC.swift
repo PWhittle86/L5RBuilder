@@ -1,37 +1,102 @@
 //
-//  FirstViewController.swift
+//  DeckListViewController.swift
 //  L5RBuilder
 //
-//  Created by Peter Whittle on 08/11/2018.
-//  Copyright © 2018 Peter Whittle. All rights reserved.
+//  Created by Peter Whittle on 08/03/2019.
+//  Copyright © 2019 Peter Whittle. All rights reserved.
 //
 
 import UIKit
-import RealmSwift
 
-class DeckListVC: UIViewController {
-    
+class DeckListVC: UITableViewController {
+
     let cardDB = DBHelper.sharedInstance
+    var userDecks: Array<Deck> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         cardDB.downloadCards()
         downloadImages()
         updateImageDownloadStatus()
     }
-    
-    func optionalStringConverter(string: String?) -> String{
-        if let optionalString = string{
-            if optionalString == ""{
-                return "N/A"
-            } else {
-                return optionalString
-            }
+
+    // MARK: - Table view data source
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        return userDecks.count + 1
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if (indexPath[1] == userDecks.count){
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DeckListVCCellIdentifier", for: indexPath) as! DeckListVCAddCell
+            return cell
         } else {
-            return "N/A"
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DeckListVCCellIdentifier", for: indexPath) as! DeckListVCCell
+            return cell
         }
     }
+
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if (indexPath[1] == userDecks.count){
+            
+        }
+        
+    }
+    
+    /*
+    // Override to support conditional editing of the table view.
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    */
+
+    /*
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }    
+    }
+    */
+
+    /*
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+
+    }
+    */
+
+    /*
+    // Override to support conditional rearranging of the table view.
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
+    */
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
     func downloadImages(){
         
         let allCards = cardDB.getAllCards()
@@ -104,7 +169,5 @@ class DeckListVC: UIViewController {
             }
         }
     }
-    
-    
     
 }

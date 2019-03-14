@@ -16,16 +16,6 @@ class CardViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         cardLabel.font = UIFont(name: "brushtipTexeTRIAL", size: 20)
-        
-    }
-    
-    func showCardLabelIfNoImage(card: Card){
-        if card.imageSavedLocally == false{
-            cardLabel.isHidden = false
-        }
-        else{
-            cardLabel.isHidden = true
-        }
     }
     
 }
