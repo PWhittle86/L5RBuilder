@@ -25,6 +25,7 @@
 		22ABD2DE223AAF8900BB3AB6 /* NewDeckPopUpVCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22ABD2DC223AAF8900BB3AB6 /* NewDeckPopUpVCViewController.xib */; };
 		22ABD2E1223AB19700BB3AB6 /* StrongholdCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ABD2DF223AB19700BB3AB6 /* StrongholdCollectionViewCell.swift */; };
 		22ABD2E2223AB19700BB3AB6 /* StrongholdCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22ABD2E0223AB19700BB3AB6 /* StrongholdCollectionViewCell.xib */; };
+		22ABD2E6223BE32500BB3AB6 /* NewVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ABD2E5223BE32500BB3AB6 /* NewVCViewController.swift */; };
 		22E8791421944F63000EC7C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8791321944F63000EC7C3 /* AppDelegate.swift */; };
 		22E8791821944F63000EC7C3 /* CardViewerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8791721944F63000EC7C3 /* CardViewerVC.swift */; };
 		22E8791B21944F63000EC7C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E8791921944F63000EC7C3 /* Main.storyboard */; };
@@ -65,6 +66,7 @@
 		22ABD2DC223AAF8900BB3AB6 /* NewDeckPopUpVCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewDeckPopUpVCViewController.xib; sourceTree = "<group>"; };
 		22ABD2DF223AB19700BB3AB6 /* StrongholdCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrongholdCollectionViewCell.swift; sourceTree = "<group>"; };
 		22ABD2E0223AB19700BB3AB6 /* StrongholdCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StrongholdCollectionViewCell.xib; sourceTree = "<group>"; };
+		22ABD2E5223BE32500BB3AB6 /* NewVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewVCViewController.swift; sourceTree = "<group>"; };
 		22E8791021944F63000EC7C3 /* L5RBuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = L5RBuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E8791321944F63000EC7C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22E8791721944F63000EC7C3 /* CardViewerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewerVC.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				2216B900223300FB0070AE93 /* DeckListVC.swift */,
+				22ABD2E5223BE32500BB3AB6 /* NewVCViewController.swift */,
 				2216B902223309C40070AE93 /* DeckListVCAddCell.swift */,
 				22ABD2BE22394D7900BB3AB6 /* DeckListVCCell.swift */,
 			);
@@ -406,6 +409,7 @@
 				22ABD2E1223AB19700BB3AB6 /* StrongholdCollectionViewCell.swift in Sources */,
 				22ABD2DD223AAF8900BB3AB6 /* NewDeckPopUpVC.swift in Sources */,
 				227021FA2195E638004F4E99 /* Deck.swift in Sources */,
+				22ABD2E6223BE32500BB3AB6 /* NewVCViewController.swift in Sources */,
 				2216B903223309C40070AE93 /* DeckListVCAddCell.swift in Sources */,
 				2209EE572195A9760080808E /* Card.swift in Sources */,
 				2216B901223300FB0070AE93 /* DeckListVC.swift in Sources */,

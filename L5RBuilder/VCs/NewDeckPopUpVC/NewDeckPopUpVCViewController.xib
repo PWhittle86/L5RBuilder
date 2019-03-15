@@ -12,7 +12,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewDeckPopUpVC" customModule="L5RBuilder" customModuleProvider="target">
             <connections>
-                <outlet property="cancelButton" destination="0C1-vR-Yrk" id="bSW-zb-2pk"/>
                 <outlet property="strongHoldCollectionView" destination="QNj-lA-RlC" id="jJY-Z3-M26"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,42 +21,21 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6P5-FB-3eJ">
-                    <rect key="frame" x="0.0" y="37" width="375" height="638.5"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="QNj-lA-RlC" userLabel="Stronghold Collection View">
+                    <rect key="frame" x="0.0" y="94" width="375" height="573"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4PG-0k-0hu">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <textAttributes key="titleTextAttributes">
-                                <fontDescription key="fontDescription" name="brushtipTexeTRIAL" family="brush-tipTexe TRIAL" pointSize="20"/>
-                            </textAttributes>
-                            <items>
-                                <navigationItem title="Select a Stronghold" id="4sH-Rc-s3x">
-                                    <barButtonItem key="leftBarButtonItem" title="Cancel" id="0C1-vR-Yrk">
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <action selector="didTapCancel:" destination="-1" id="mko-Uw-jTz"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </navigationItem>
-                            </items>
-                        </navigationBar>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="QNj-lA-RlC">
-                            <rect key="frame" x="0.0" y="54" width="375" height="584.5"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HzH-O4-f3B">
-                                <size key="itemSize" width="50" height="50"/>
-                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </collectionViewFlowLayout>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="wG2-DF-I2z"/>
-                                <outlet property="delegate" destination="-1" id="1Hd-1Z-lMS"/>
-                            </connections>
-                        </collectionView>
-                    </subviews>
-                </stackView>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HzH-O4-f3B">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="wG2-DF-I2z"/>
+                        <outlet property="delegate" destination="-1" id="1Hd-1Z-lMS"/>
+                    </connections>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

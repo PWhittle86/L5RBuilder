@@ -171,8 +171,18 @@ class DeckListVC: UITableViewController {
     
     func presentNewDeckPopup(){
         
-        let newDeckVC = NewDeckPopUpVC()
-        self.present(newDeckVC, animated: true, completion: nil)
+        let newDeckVC = NewDeckPopUpVC(nibName: "NewDeckPopUpVCViewController", bundle: nil)
+        self.navigationController?.present(newDeckVC, animated: true, completion: nil)
+        //newDeckVC.modalPresentationStyle = .overFullScreen
+//        self.present(newDeckVC, animated: true, completion: nil)
+        
+        
+        
+        // Present View "Modally"
+        
+        
+        //self.navigationController?.pushViewController(newDeckVC, animated: false)
+        //self.present(newDeckVC, animated: true, completion: nil)
     }
     
 }

@@ -12,7 +12,7 @@ class StrongholdCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+//        self.contentView.backgroundColor = UIColor.green
     }
 
 }
