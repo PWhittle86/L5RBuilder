@@ -47,9 +47,8 @@ class DeckListVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if (indexPath[1] == userDecks.count){
-            
+            presentNewDeckPopup()
         }
-        
     }
     
     /*
@@ -168,6 +167,12 @@ class DeckListVC: UITableViewController {
                 }
             }
         }
+    }
+    
+    func presentNewDeckPopup(){
+        
+        let newDeckVC = NewDeckPopUpVC()
+        self.present(newDeckVC, animated: true, completion: nil)
     }
     
 }

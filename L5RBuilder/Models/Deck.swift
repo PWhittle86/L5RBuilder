@@ -8,14 +8,21 @@
 
 import UIKit
 
-enum Clan {
-  case Crab, Crane, Dragon, Lion, Phoenix, Scorpion, Unicorn
+enum Clan: String {
+    case Crab = "Crab"
+    case Crane = "Crane"
+    case Dragon = "Dragon"
+    case Lion = "Lion"
+    case Phoenix = "Phoenix"
+    case Scorpion = "Scorpion"
+    case Unicorn = "Unicorn"
+    case Unselected = "Unselected"
 }
 
 class Deck: NSObject {
   
   var name: String?
-  var clan: Clan
+  var clan: String
   var role: Card
   var stronghold: Card
   
@@ -23,10 +30,12 @@ class Deck: NSObject {
   var conflictDeck: Array <Card> = []
   var provinceDeck: Array <Card> = []
   
-  init(withClan clan: Clan, stronghold: Card, role:Card) {
-    self.clan = clan
+  init(stronghold: Card, role:Card) {
     self.stronghold = stronghold
+    self.clan = stronghold.clan
     self.role = role
   }
   
+    
+    
 }
