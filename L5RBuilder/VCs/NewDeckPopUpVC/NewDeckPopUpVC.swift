@@ -11,6 +11,7 @@ import UIKit
 class NewDeckPopUpVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
     
     @IBOutlet weak var strongholdCollectionView: UICollectionView!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         self.strongholdCollectionView.register(UINib.init(nibName: "strongholdCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "strongholdCellID")
@@ -38,4 +39,9 @@ class NewDeckPopUpVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         return cell
     }
  
+    @IBAction func didTapCancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
 }

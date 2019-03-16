@@ -15,7 +15,7 @@ class DeckListVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         cardDB.downloadCards()
         downloadImages()
         updateImageDownloadStatus()
