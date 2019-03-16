@@ -22,10 +22,10 @@
 		22ABD2C8223A837B00BB3AB6 /* DeckBuilderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ABD2C6223A837B00BB3AB6 /* DeckBuilderVC.swift */; };
 		22ABD2C9223A837B00BB3AB6 /* DeckBuilderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22ABD2C7223A837B00BB3AB6 /* DeckBuilderVC.xib */; };
 		22ABD2DD223AAF8900BB3AB6 /* NewDeckPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ABD2DB223AAF8900BB3AB6 /* NewDeckPopUpVC.swift */; };
-		22ABD2DE223AAF8900BB3AB6 /* NewDeckPopUpVCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22ABD2DC223AAF8900BB3AB6 /* NewDeckPopUpVCViewController.xib */; };
-		22ABD2E1223AB19700BB3AB6 /* StrongholdCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ABD2DF223AB19700BB3AB6 /* StrongholdCollectionViewCell.swift */; };
-		22ABD2E2223AB19700BB3AB6 /* StrongholdCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22ABD2E0223AB19700BB3AB6 /* StrongholdCollectionViewCell.xib */; };
 		22ABD2E6223BE32500BB3AB6 /* NewVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ABD2E5223BE32500BB3AB6 /* NewVCViewController.swift */; };
+		22ABD302223D910D00BB3AB6 /* strongholdCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22ABD301223D910D00BB3AB6 /* strongholdCollectionView.xib */; };
+		22ABD305223D94D900BB3AB6 /* strongholdCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ABD303223D94D900BB3AB6 /* strongholdCollectionViewCell.swift */; };
+		22ABD306223D94D900BB3AB6 /* strongholdCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22ABD304223D94D900BB3AB6 /* strongholdCollectionViewCell.xib */; };
 		22E8791421944F63000EC7C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8791321944F63000EC7C3 /* AppDelegate.swift */; };
 		22E8791821944F63000EC7C3 /* CardViewerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8791721944F63000EC7C3 /* CardViewerVC.swift */; };
 		22E8791B21944F63000EC7C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E8791921944F63000EC7C3 /* Main.storyboard */; };
@@ -62,11 +62,11 @@
 		22ABD2C52239630F00BB3AB6 /* L5RBuilder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = L5RBuilder.entitlements; sourceTree = "<group>"; };
 		22ABD2C6223A837B00BB3AB6 /* DeckBuilderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckBuilderVC.swift; sourceTree = "<group>"; };
 		22ABD2C7223A837B00BB3AB6 /* DeckBuilderVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeckBuilderVC.xib; sourceTree = "<group>"; };
-		22ABD2DB223AAF8900BB3AB6 /* NewDeckPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDeckPopUpVC.swift; sourceTree = "<group>"; };
-		22ABD2DC223AAF8900BB3AB6 /* NewDeckPopUpVCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewDeckPopUpVCViewController.xib; sourceTree = "<group>"; };
-		22ABD2DF223AB19700BB3AB6 /* StrongholdCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrongholdCollectionViewCell.swift; sourceTree = "<group>"; };
-		22ABD2E0223AB19700BB3AB6 /* StrongholdCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StrongholdCollectionViewCell.xib; sourceTree = "<group>"; };
+		22ABD2DB223AAF8900BB3AB6 /* NewDeckPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDeckPopUpVC.swift; sourceTree = "<group>"; usesTabs = 0; };
 		22ABD2E5223BE32500BB3AB6 /* NewVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewVCViewController.swift; sourceTree = "<group>"; };
+		22ABD301223D910D00BB3AB6 /* strongholdCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = strongholdCollectionView.xib; sourceTree = "<group>"; };
+		22ABD303223D94D900BB3AB6 /* strongholdCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = strongholdCollectionViewCell.swift; sourceTree = "<group>"; };
+		22ABD304223D94D900BB3AB6 /* strongholdCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = strongholdCollectionViewCell.xib; sourceTree = "<group>"; };
 		22E8791021944F63000EC7C3 /* L5RBuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = L5RBuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E8791321944F63000EC7C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22E8791721944F63000EC7C3 /* CardViewerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewerVC.swift; sourceTree = "<group>"; };
@@ -169,9 +169,9 @@
 			isa = PBXGroup;
 			children = (
 				22ABD2DB223AAF8900BB3AB6 /* NewDeckPopUpVC.swift */,
-				22ABD2DC223AAF8900BB3AB6 /* NewDeckPopUpVCViewController.xib */,
-				22ABD2DF223AB19700BB3AB6 /* StrongholdCollectionViewCell.swift */,
-				22ABD2E0223AB19700BB3AB6 /* StrongholdCollectionViewCell.xib */,
+				22ABD301223D910D00BB3AB6 /* strongholdCollectionView.xib */,
+				22ABD303223D94D900BB3AB6 /* strongholdCollectionViewCell.swift */,
+				22ABD304223D94D900BB3AB6 /* strongholdCollectionViewCell.xib */,
 			);
 			path = NewDeckPopUpVC;
 			sourceTree = "<group>";
@@ -325,12 +325,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22ABD306223D94D900BB3AB6 /* strongholdCollectionViewCell.xib in Resources */,
+				22ABD302223D910D00BB3AB6 /* strongholdCollectionView.xib in Resources */,
 				22E8792021944F66000EC7C3 /* LaunchScreen.storyboard in Resources */,
 				2209DAC02232C64B00755906 /* L5RFont.otf in Resources */,
 				22ABD2C9223A837B00BB3AB6 /* DeckBuilderVC.xib in Resources */,
-				22ABD2E2223AB19700BB3AB6 /* StrongholdCollectionViewCell.xib in Resources */,
 				22E8791D21944F66000EC7C3 /* Assets.xcassets in Resources */,
-				22ABD2DE223AAF8900BB3AB6 /* NewDeckPopUpVCViewController.xib in Resources */,
 				222AE28021B19DA800C75868 /* Podfile in Resources */,
 				22E8791B21944F63000EC7C3 /* Main.storyboard in Resources */,
 				22ABD2C122394FE000BB3AB6 /* plus.png in Resources */,
@@ -400,13 +400,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22ABD305223D94D900BB3AB6 /* strongholdCollectionViewCell.swift in Sources */,
 				22E8791821944F63000EC7C3 /* CardViewerVC.swift in Sources */,
 				22E8791421944F63000EC7C3 /* AppDelegate.swift in Sources */,
 				22ABD2BF22394D7900BB3AB6 /* DeckListVCCell.swift in Sources */,
 				2209DAB72232A5E300755906 /* CardViewCell.swift in Sources */,
 				2279887A21BAC99000F696F7 /* DBHelper.swift in Sources */,
 				22ABD2C8223A837B00BB3AB6 /* DeckBuilderVC.swift in Sources */,
-				22ABD2E1223AB19700BB3AB6 /* StrongholdCollectionViewCell.swift in Sources */,
 				22ABD2DD223AAF8900BB3AB6 /* NewDeckPopUpVC.swift in Sources */,
 				227021FA2195E638004F4E99 /* Deck.swift in Sources */,
 				22ABD2E6223BE32500BB3AB6 /* NewVCViewController.swift in Sources */,

@@ -1,18 +1,18 @@
 //
-//  StrongholdCollectionViewCell.swift
+//  strongholdCollectionViewCell.swift
 //  L5RBuilder
 //
-//  Created by Peter Whittle on 14/03/2019.
+//  Created by Peter Whittle on 16/03/2019.
 //  Copyright © 2019 Peter Whittle. All rights reserved.
 //
 
 import UIKit
 
-class StrongholdCollectionViewCell: UICollectionViewCell {
+class strongholdCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-//        self.contentView.backgroundColor = UIColor.green
+        // Initialization code
     }
 
 }

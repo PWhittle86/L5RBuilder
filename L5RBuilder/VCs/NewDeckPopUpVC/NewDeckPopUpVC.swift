@@ -8,33 +8,23 @@
 
 import UIKit
 
-//protocol NewDeckPopUpVCViewControllerDelegate{
-//    func didTapCancel()
-//}
-
-class NewDeckPopUpVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
-//, NewDeckPopUpVCViewControllerDelegate
-{
-
-    @IBOutlet weak var strongHoldCollectionView: UICollectionView!
-//    @IBOutlet weak var cancelButton: UIBarButtonItem!
+class NewDeckPopUpVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
     
-//    var delegate: NewDeckPopUpVCViewControllerDelegate?
+    @IBOutlet weak var strongholdCollectionView: UICollectionView!
     
-//    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle? = nil) {
-//        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-//       // self.delegate = delegate
-//    }
+    override func viewDidLoad() {
+        self.strongholdCollectionView.register(UINib.init(nibName: "strongholdCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "strongholdCellID")
+        self.strongholdCollectionView.dataSource = self
+        self.strongholdCollectionView.delegate = self
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+       // self.delegate = delegate
+    }
 
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.strongHoldCollectionView.dataSource = self
-        self.strongHoldCollectionView.delegate = self
-        self.strongHoldCollectionView.register(UINib.init(nibName: "StrongholdCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "StrongholdCellID")
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -44,12 +34,8 @@ class NewDeckPopUpVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = strongHoldCollectionView.dequeueReusableCell(withReuseIdentifier: "StrongholdCellID", for: indexPath) as! StrongholdCollectionViewCell
+        let cell = self.strongholdCollectionView.dequeueReusableCell(withReuseIdentifier: "strongholdCellID", for: indexPath)
         return cell
     }
-
-//    @IBAction func didTapCancel(_ sender: Any) {
-//        self.dismiss(animated: true, completion: nil)
-//    }
-    
+ 
 }
