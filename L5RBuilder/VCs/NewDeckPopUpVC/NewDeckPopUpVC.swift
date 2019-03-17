@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import RealmSwift
 
 class NewDeckPopUpVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
     
     @IBOutlet weak var strongholdCollectionView: UICollectionView!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
+    let db = DBHelper.sharedInstance
+    var strongholds: Results<Card>!
     
     override func viewDidLoad() {
         self.strongholdCollectionView.register(UINib.init(nibName: "strongholdCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "strongholdCellID")
@@ -21,6 +25,7 @@ class NewDeckPopUpVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.strongholds = self.db.getAllStrongholds()
        // self.delegate = delegate
     }
 

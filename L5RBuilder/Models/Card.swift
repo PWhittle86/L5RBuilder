@@ -19,7 +19,7 @@ class Card: Object {
     @objc dynamic var flavorText: String? = nil
     @objc dynamic var originPack: String? = ""
     @objc dynamic public var name = ""
-    @objc dynamic var type = ""
+    @objc dynamic var cardType = ""
     @objc dynamic var side = ""
     @objc dynamic var textCanonical: String? = nil
     

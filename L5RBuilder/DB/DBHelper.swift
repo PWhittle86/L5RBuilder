@@ -44,6 +44,17 @@ class DBHelper{
         return cards
     }
     
+    func getAllStrongholds() -> Results<Card>{
+        
+        let cards = self.DB.objects(Card.self).filter("cardType = 'stronghold'")
+//        var cardArray: [Card] = []
+//        
+//        for card in cards{
+//            cardArray.append(card)
+//        }
+        return cards
+    }
+    
     //Save card to DB.
     func addCard(card: Card){
         
@@ -148,7 +159,7 @@ class DBHelper{
                         dbCard.clan = card.clan
                         dbCard.deckLimit = card.deck_limit
                         dbCard.name = card.name
-                        dbCard.type = card.type
+                        dbCard.cardType = card.type
                         dbCard.side = card.side
                         dbCard.unicity = card.unicity
                         
