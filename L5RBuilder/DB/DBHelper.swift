@@ -170,12 +170,15 @@ class DBHelper{
                         
                         let lastPackCardIndex = (card.pack_cards.count - 1) //This doesn't quite work atm. Way-of card images are being lost. Will do for the time being.
                         
+                        if lastPackCardIndex >= 0{
+                            dbCard.imageURL = card.pack_cards[lastPackCardIndex].image_url
+                            dbCard.flavorText = card.pack_cards[lastPackCardIndex].flavor
+                            dbCard.originPack = card.pack_cards[lastPackCardIndex].pack["id"]
+                        }
+                        
                         //Optional strings
                         
-                        dbCard.imageURL = card.pack_cards[lastPackCardIndex].image_url
                         dbCard.textCanonical = card.text_canonical
-                        dbCard.flavorText = card.pack_cards[lastPackCardIndex].flavor
-                        dbCard.originPack = card.pack_cards[lastPackCardIndex].pack["id"]
                         dbCard.strengthBonus = card.strength_bonus
                         dbCard.strength = card.strength
                         

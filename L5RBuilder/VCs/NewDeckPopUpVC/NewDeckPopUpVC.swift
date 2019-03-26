@@ -21,11 +21,16 @@ class NewDeckPopUpVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.strongholdCollectionView.register(UINib.init(nibName: "strongholdCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "strongholdCellID")
         self.strongholdCollectionView.dataSource = self
         self.strongholdCollectionView.delegate = self
+        
+        self.modalPresentationStyle = .formSheet
+        self.preferredContentSize = CGSize(width: 550, height: 600)
+        
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.strongholds = self.db.getAllStrongholds()
+        
        // self.delegate = delegate
     }
 

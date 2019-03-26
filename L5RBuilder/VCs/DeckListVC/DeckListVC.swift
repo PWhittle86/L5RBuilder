@@ -172,6 +172,7 @@ class DeckListVC: UITableViewController {
     func presentNewDeckPopup(){
         
         let newDeckVC = NewDeckPopUpVC(nibName: "strongholdCollectionView", bundle: nil)
+        newDeckVC.modalPresentationStyle = .formSheet
         self.navigationController?.present(newDeckVC, animated: true, completion: nil)
     }
     
