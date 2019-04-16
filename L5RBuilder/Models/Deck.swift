@@ -8,23 +8,23 @@
 
 import UIKit
 
-enum Clan: String {
-    case Crab = "Crab"
-    case Crane = "Crane"
-    case Dragon = "Dragon"
-    case Lion = "Lion"
-    case Phoenix = "Phoenix"
-    case Scorpion = "Scorpion"
-    case Unicorn = "Unicorn"
-    case Unselected = "Unselected"
+enum Clan: String, CaseIterable {
+    case crab = "Crab"
+    case crane = "Crane"
+    case dragon = "Dragon"
+    case lion = "Lion"
+    case phoenix = "Phoenix"
+    case scorpion = "Scorpion"
+    case unicorn = "Unicorn"
+    case unselected = "Unselected"
 }
 
 class Deck: NSObject {
   
   var name: String?
-  var clan: String
-  var role: Card
-  var stronghold: Card
+  var clan: String?
+  var role: Card?
+  var stronghold: Card?
   
   var dynastyDeck: Array <Card> = []
   var conflictDeck: Array <Card> = []
@@ -35,7 +35,5 @@ class Deck: NSObject {
     self.clan = stronghold.clan
     self.role = role
   }
-  
-    
     
 }

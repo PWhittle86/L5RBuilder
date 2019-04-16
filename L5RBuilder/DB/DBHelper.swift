@@ -25,14 +25,12 @@ class DBHelper{
         }
     }
     
-    //Get card from DB. The string must match the db exactly.
     func getCard(cardID: String) -> Card{
         
         let cards = self.DB.objects(Card.self).filter("id == '\(cardID)'")
         return cards[0]
     }
     
-    //Return all cards currently in db.
     func getAllCards() -> Results<Card>{
         
         return self.DB.objects(Card.self)
@@ -47,25 +45,17 @@ class DBHelper{
     func getAllStrongholds() -> Results<Card>{
         
         let cards = self.DB.objects(Card.self).filter("cardType = 'stronghold'")
-//        var cardArray: [Card] = []
-//        
-//        for card in cards{
-//            cardArray.append(card)
-//        }
         return cards
     }
     
-    //Save card to DB.
     func addCard(card: Card){
-        
         OperationQueue.main.addOperation {
             try! self.DB.write{
                 self.DB.add(card)
             }
         }
     }
-    
-    //Remove card from DB.
+
     func deleteCard(card:Card){
         
         let backgroundRealm = try! Realm(configuration: self.cardDBConfig)
@@ -81,7 +71,6 @@ class DBHelper{
         }
     }
     
-    //Updated localImageStatus to specified bool.
     func updateLocalImageStatus(card: Card, updateTo: Bool){
         
         let backgroundRealm = try! Realm(configuration: self.cardDBConfig)
@@ -90,8 +79,6 @@ class DBHelper{
         }
     }
     
-    
-    //Delete specified DB.
     func deleteDB(realm: Realm){
         
         let realmURL = realm.configuration.fileURL!
@@ -198,14 +185,5 @@ class DBHelper{
         }
         task.resume()
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
 
