@@ -7,71 +7,55 @@
 //
 
 import UIKit
+import RealmSwift
 
-class NewDeckPopUpVC: UIViewController {
+class NewDeckPopUpVC: UIViewController{
     
     @IBOutlet weak var clanNameTextfield: UITextField!
     @IBOutlet weak var strongholdTextfield: UITextField!
     @IBOutlet weak var roleTextfield: UITextField!
     
-    var clans: Array<Clan> = Clan.allCases
-    var strongholds: Array<Card> = []
-    var roles: Array<Card> = []
+    let db = DBHelper.sharedInstance
     
     var selectedClan = Clan.unselected
     var selectedStronghold : Card?
     var selectedRole : Card?
     
-    private var pickerView = UIPickerView()
+    let clanPickerView = UIPickerView()
+    let strongholdPickerView = UIPickerView()
+    let rolePickerView = UIPickerView()
+    
+    let clanPickerDelegate = ClanPickerDelegate()
+    let strongholdPickerDelegate = StrongholdPickerDelegate()
+    let rolePickerDelegate = RolePickerDelegate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpClanPickerView()
-    }
-
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        setUpPickerViews()
         
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        //This is the part you need in order for data to be returned to the view controller from the delegate!
+        clanPickerDelegate.delegate = self
+        strongholdPickerDelegate.delegate = self
+        rolePickerDelegate.delegate = self
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func setUpPickerViews(){
+        clanPickerView.delegate = clanPickerDelegate
+        clanPickerView.dataSource = clanPickerDelegate
+        
+        strongholdPickerView.delegate = strongholdPickerDelegate
+        strongholdPickerView.dataSource = strongholdPickerDelegate
+        
+        rolePickerView.delegate = rolePickerDelegate
+        rolePickerView.dataSource = rolePickerDelegate
+        
+        self.clanNameTextfield.inputView = self.clanPickerView
+        self.strongholdTextfield.inputView = self.strongholdPickerView
+        self.roleTextfield.inputView = self.rolePickerView
+        addPickerToolbars()
     }
     
-    func setUpClanPickerView(){
-        let pickerView = UIPickerView()
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        self.pickerView = pickerView
-        self.clanNameTextfield.inputView = self.pickerView
-        addPickerToolbar()
-    }
-    
-}
-
-extension NewDeckPopUpVC: UIPickerViewDataSource{
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        //-1 so that unselected does not appear as a user option.
-        return (clans.count - 1)
-    }
-}
-
-extension NewDeckPopUpVC: UIPickerViewDelegate {
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return clans[row].rawValue
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.clanNameTextfield.text = clans[row].rawValue
-    }
-    
-    func addPickerToolbar(){
+    func addPickerToolbars(){
         
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
@@ -84,20 +68,44 @@ extension NewDeckPopUpVC: UIPickerViewDelegate {
         toolBar.setItems([flexButton, doneButton], animated: true)
         toolBar.isUserInteractionEnabled = true
         clanNameTextfield.inputAccessoryView = toolBar
+        strongholdTextfield.inputAccessoryView = toolBar
+        roleTextfield.inputAccessoryView = toolBar
     }
     
-   @objc func doneClick(){
+    @objc func doneClick(){
         view.endEditing(true)
     }
+
     
 }
 
-extension NewDeckPopUpVC: UITextFieldDelegate {
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == self.clanNameTextfield{
-            self.pickerView.selectRow(0, inComponent: 0, animated: true)
+extension NewDeckPopUpVC: ClanDataDelegate{
+    func didPassClan(passedClan: Clan) {
+        self.selectedClan = passedClan
+        self.clanNameTextfield.text = passedClan.rawValue
+        
+        //Update available strongholds to match selected clan.
+        self.strongholdPickerDelegate.strongholds = db.getAllClanStrongholds(clan: selectedClan.rawValue.lowercased())
+    }
+}
+
+extension NewDeckPopUpVC: StrongholdDataDelegate{
+    func didPassSelectedStronghold(passedStronghold: Card) {
+        self.selectedStronghold = passedStronghold
+        self.strongholdTextfield.text = passedStronghold.name
+        
+        if let clan = Clan(rawValue: passedStronghold.clan.localizedCapitalized){
+            self.selectedClan = clan
+            self.clanNameTextfield.text = clan.rawValue
         }
     }
-    
+}
+
+extension NewDeckPopUpVC: RoleDataDelegate{
+    func didPassSelectedRole(passedRole: Card) {
+        self.selectedRole = passedRole
+        self.roleTextfield.text = passedRole.name
+        
+        //TODO: Add functionality which checks if the selected role matches the clan role. Might want to set these up with firebase remote config.
+    }
 }

@@ -13,6 +13,9 @@
 		2216B901223300FB0070AE93 /* DeckListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2216B900223300FB0070AE93 /* DeckListVC.swift */; };
 		2216B903223309C40070AE93 /* DeckListVCAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2216B902223309C40070AE93 /* DeckListVCAddCell.swift */; };
 		222AE28021B19DA800C75868 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 222AE27F21B19DA800C75868 /* Podfile */; };
+		223749802269ECB30053B244 /* ClanPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2237497F2269ECB30053B244 /* ClanPickerDelegate.swift */; };
+		223749822269ED060053B244 /* StrongholdPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223749812269ED060053B244 /* StrongholdPickerDelegate.swift */; };
+		223749842269ED180053B244 /* RolePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223749832269ED180053B244 /* RolePickerDelegate.swift */; };
 		227021FA2195E638004F4E99 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227021F92195E638004F4E99 /* Deck.swift */; };
 		2279887A21BAC99000F696F7 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2279887921BAC99000F696F7 /* DBHelper.swift */; };
 		2279887C21BACB2E00F696F7 /* APICardCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2279887B21BACB2E00F696F7 /* APICardCodes.swift */; };
@@ -49,6 +52,9 @@
 		2216B900223300FB0070AE93 /* DeckListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckListVC.swift; sourceTree = "<group>"; };
 		2216B902223309C40070AE93 /* DeckListVCAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckListVCAddCell.swift; sourceTree = "<group>"; };
 		222AE27F21B19DA800C75868 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		2237497F2269ECB30053B244 /* ClanPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanPickerDelegate.swift; sourceTree = "<group>"; };
+		223749812269ED060053B244 /* StrongholdPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrongholdPickerDelegate.swift; sourceTree = "<group>"; };
+		223749832269ED180053B244 /* RolePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolePickerDelegate.swift; sourceTree = "<group>"; };
 		227021F92195E638004F4E99 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		2279887921BAC99000F696F7 /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		2279887B21BACB2E00F696F7 /* APICardCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICardCodes.swift; sourceTree = "<group>"; };
@@ -141,6 +147,16 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		2237497E2269EC7F0053B244 /* PickerDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				2237497F2269ECB30053B244 /* ClanPickerDelegate.swift */,
+				223749812269ED060053B244 /* StrongholdPickerDelegate.swift */,
+				223749832269ED180053B244 /* RolePickerDelegate.swift */,
+			);
+			path = PickerDelegates;
+			sourceTree = "<group>";
+		};
 		2279887821BAC7F700F696F7 /* DB */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +177,7 @@
 		22ABD2CA223A91E700BB3AB6 /* NewDeckPopUpVC */ = {
 			isa = PBXGroup;
 			children = (
+				2237497E2269EC7F0053B244 /* PickerDelegates */,
 				22825855224A7371006AF44D /* NewDeckPopUpVC.swift */,
 				22825856224A7371006AF44D /* NewDeckPopUpVC.xib */,
 			);
@@ -390,10 +407,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				223749822269ED060053B244 /* StrongholdPickerDelegate.swift in Sources */,
 				22E8791821944F63000EC7C3 /* CardViewerVC.swift in Sources */,
 				22E8791421944F63000EC7C3 /* AppDelegate.swift in Sources */,
 				22ABD2BF22394D7900BB3AB6 /* DeckListVCCell.swift in Sources */,
 				2209DAB72232A5E300755906 /* CardViewCell.swift in Sources */,
+				223749802269ECB30053B244 /* ClanPickerDelegate.swift in Sources */,
 				2279887A21BAC99000F696F7 /* DBHelper.swift in Sources */,
 				22ABD2C8223A837B00BB3AB6 /* DeckBuilderVC.swift in Sources */,
 				227021FA2195E638004F4E99 /* Deck.swift in Sources */,
@@ -402,6 +421,7 @@
 				2209EE572195A9760080808E /* Card.swift in Sources */,
 				2216B901223300FB0070AE93 /* DeckListVC.swift in Sources */,
 				2279887C21BACB2E00F696F7 /* APICardCodes.swift in Sources */,
+				223749842269ED180053B244 /* RolePickerDelegate.swift in Sources */,
 				2288C1CC21CA515A009842B5 /* cardImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

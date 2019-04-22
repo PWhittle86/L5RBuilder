@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum Clan: String, CaseIterable {
+enum Clan: String, CaseIterable, RawRepresentable {
     case crab = "Crab"
     case crane = "Crane"
     case dragon = "Dragon"

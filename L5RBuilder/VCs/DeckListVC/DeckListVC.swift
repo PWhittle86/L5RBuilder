@@ -171,11 +171,7 @@ class DeckListVC: UITableViewController {
     
     func presentNewDeckPopup(){
         let newDeckVC = NewDeckPopUpVC(nibName: "NewDeckPopUpVC", bundle: nil)
-//        newDeckVC.modalPresentationStyle = .overCurrentContext
-//        newDeckVC.modalTransitionStyle = .crossDissolve
-//        self.navigationController?.pushViewController(newDeckVC, animated: true)
         self.navigationController?.present(newDeckVC, animated: true, completion: nil)
-//        self.p
     }
     
 }

@@ -26,25 +26,31 @@ class DBHelper{
     }
     
     func getCard(cardID: String) -> Card{
-        
         let cards = self.DB.objects(Card.self).filter("id == '\(cardID)'")
         return cards[0]
     }
     
     func getAllCards() -> Results<Card>{
-        
         return self.DB.objects(Card.self)
     }
     
     func getAllUnsavedImages() -> Results<Card>{
-        
         let cards = self.DB.objects(Card.self).filter("imageSavedLocally == \(false)")
         return cards
     }
     
+    func getAllRoles() -> Results<Card>{
+        let cards = self.DB.objects(Card.self).filter("cardType = 'role'")
+        return cards
+    }
+    
     func getAllStrongholds() -> Results<Card>{
-        
         let cards = self.DB.objects(Card.self).filter("cardType = 'stronghold'")
+        return cards
+    }
+    
+    func getAllClanStrongholds(clan: String) -> Results<Card>{
+        let cards = self.DB.objects(Card.self).filter("cardType = 'stronghold' AND clan = '\(clan)'")
         return cards
     }
     
