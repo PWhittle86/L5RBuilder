@@ -17,15 +17,14 @@ class ClanPickerDelegate: NSObject, UIPickerViewDataSource, UIPickerViewDelegate
     
     weak var delegate: ClanDataDelegate?
     let clanArray = Clan.allCases
-    var selectedClan: Clan = Clan.unselected
+    var selectedClan: Clan?
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        //Minus one so that 'unselected' does not appear as an option.
-        return (clanArray.count - 1)
+        return (clanArray.count)
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -34,7 +33,10 @@ class ClanPickerDelegate: NSObject, UIPickerViewDataSource, UIPickerViewDelegate
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedClan = clanArray[row]
-        delegate?.didPassClan(passedClan: selectedClan)
+        
+        if let clan = selectedClan{
+            delegate?.didPassClan(passedClan: clan)
+        }
     }
     
 }

@@ -10,13 +10,12 @@ import UIKit
 
 class DeckListVC: UITableViewController {
 
-    let cardDB = DBHelper.sharedInstance
+    let db = DBHelper.sharedInstance
     var userDecks: Array<Deck> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        cardDB.downloadCards()
+        db.downloadCards()
         downloadImages()
         updateImageDownloadStatus()
     }
@@ -98,7 +97,7 @@ class DeckListVC: UITableViewController {
 
     func downloadImages(){
         
-        let allCards = cardDB.getAllCards()
+        let allCards = db.getAllCards()
         
         //Get the default documents directory, then create the /images/cardID saving path.
         guard let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
@@ -153,7 +152,7 @@ class DeckListVC: UITableViewController {
     
     func updateImageDownloadStatus(){
         
-        let unsavedCardImages = cardDB.getAllUnsavedImages()
+        let unsavedCardImages = db.getAllUnsavedImages()
         guard let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {return}
         let imageFolderURL = documentsURL.appendingPathComponent("images", isDirectory: true)
         

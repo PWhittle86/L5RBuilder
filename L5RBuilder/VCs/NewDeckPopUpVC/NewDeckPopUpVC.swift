@@ -11,15 +11,20 @@ import RealmSwift
 
 class NewDeckPopUpVC: UIViewController{
     
+    
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var okButton: UIBarButtonItem!
+    
     @IBOutlet weak var clanNameTextfield: UITextField!
     @IBOutlet weak var strongholdTextfield: UITextField!
     @IBOutlet weak var roleTextfield: UITextField!
     
+    //TODO: Add imageview & animation for stronghold/clan when selected.
     let db = DBHelper.sharedInstance
     
-    var selectedClan = Clan.unselected
-    var selectedStronghold : Card?
-    var selectedRole : Card?
+    var selectedClan: Clan?
+    var selectedStronghold: Card?
+    var selectedRole: Card?
     
     let clanPickerView = UIPickerView()
     let strongholdPickerView = UIPickerView()
@@ -32,13 +37,14 @@ class NewDeckPopUpVC: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpPickerViews()
-        
+        hideTextFieldCursors()
+        configureNavController()
         //This is the part you need in order for data to be returned to the view controller from the delegate!
         clanPickerDelegate.delegate = self
         strongholdPickerDelegate.delegate = self
         rolePickerDelegate.delegate = self
     }
-    
+
     func setUpPickerViews(){
         clanPickerView.delegate = clanPickerDelegate
         clanPickerView.dataSource = clanPickerDelegate
@@ -53,6 +59,19 @@ class NewDeckPopUpVC: UIViewController{
         self.strongholdTextfield.inputView = self.strongholdPickerView
         self.roleTextfield.inputView = self.rolePickerView
         addPickerToolbars()
+    }
+    
+    func hideTextFieldCursors(){
+        clanNameTextfield.tintColor = UIColor.clear
+        roleTextfield.tintColor = UIColor.clear
+        strongholdTextfield.tintColor = UIColor.clear
+    }
+    
+    func configureNavController(){
+        
+        if let navController = self.navigationController{
+            navController.navigationBar.barTintColor = UIColor()
+        }
     }
     
     func addPickerToolbars(){
@@ -75,7 +94,19 @@ class NewDeckPopUpVC: UIViewController{
     @objc func doneClick(){
         view.endEditing(true)
     }
-
+    
+    func allDataSelectedCheck(){
+        guard let _ = self.selectedStronghold,
+              let _ = self.selectedRole,
+              let _ = selectedClan else{
+                  return
+        }
+        okButton.isEnabled = true
+    }
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
 }
 
@@ -85,7 +116,10 @@ extension NewDeckPopUpVC: ClanDataDelegate{
         self.clanNameTextfield.text = passedClan.rawValue
         
         //Update available strongholds to match selected clan.
-        self.strongholdPickerDelegate.strongholds = db.getAllClanStrongholds(clan: selectedClan.rawValue.lowercased())
+        if let clan = selectedClan{
+            self.strongholdPickerDelegate.strongholds = db.getAllClanStrongholds(clan: clan.rawValue.lowercased())
+        }
+        allDataSelectedCheck()
     }
 }
 
@@ -98,6 +132,7 @@ extension NewDeckPopUpVC: StrongholdDataDelegate{
             self.selectedClan = clan
             self.clanNameTextfield.text = clan.rawValue
         }
+        allDataSelectedCheck()
     }
 }
 
@@ -105,7 +140,7 @@ extension NewDeckPopUpVC: RoleDataDelegate{
     func didPassSelectedRole(passedRole: Card) {
         self.selectedRole = passedRole
         self.roleTextfield.text = passedRole.name
-        
-        //TODO: Add functionality which checks if the selected role matches the clan role. Might want to set these up with firebase remote config.
+        allDataSelectedCheck()
+        //TODO: Add functionality which checks if the selected role matches the clan role, and presents an alert if it does not. Might want to set clan roles up with firebase remote config so they can be updated with rules changes.
     }
 }

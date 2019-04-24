@@ -37,8 +37,6 @@ class RolePickerDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        
         self.delegate?.didPassSelectedRole(passedRole: allRoles[row])
         print("Selected role row")
     }

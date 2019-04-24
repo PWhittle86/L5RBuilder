@@ -16,7 +16,6 @@ enum Clan: String, CaseIterable, RawRepresentable {
     case phoenix = "Phoenix"
     case scorpion = "Scorpion"
     case unicorn = "Unicorn"
-    case unselected = "Unselected"
 }
 
 class Deck: NSObject {
