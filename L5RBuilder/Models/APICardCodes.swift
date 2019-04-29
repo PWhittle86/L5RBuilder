@@ -9,40 +9,46 @@
 import Foundation
 
 struct CardData : Codable{
-  
-  //Generic properties
-  let id: String
-  let clan: String
-  let deck_limit: Int //Max number of copies allowed in deck.
-  let pack_cards: Array <packCard> //Includes image, flavor and originating pack.
-  let name: String
-  let type: String
-  let side: String //Conflict, Dynasty or province.
-  let text_canonical: String?
-  
-  //Conflict & Dynasty Properties
-  let cost: Int?
-  let glory: Int?
-  var traits: Array <String>
-  let unicity: Bool
-  let strength_bonus: String?
-  
-  //Province Properties
-  let strength: String?
-  
-  //  let restricted: Bool //Commenting this out for now, as I will need to create my own restricted list.
+    
+    //Generic properties
+    let id: String
+    let clan: String
+    let deck_limit: Int //Max number of copies allowed in deck.
+    let pack_cards: Array <packCard> //Includes image, flavor and originating pack.
+    let name: String
+    let type: String
+    let side: String //Conflict, Dynasty or province.
+    let text_canonical: String?
+    let role_restriction: String?
+    
+    //Conflict & Dynasty Properties
+    let cost: Int?
+    let glory: Int?
+    var traits: Array <String>
+    let unicity: Bool
+    let strength_bonus: String?
+    
+    //Province Properties
+    let strength: String?
+    
+    //Stronghold Properties
+    let fate: Int?
+    let honor: Int?
+    let influence_pool: Int?
+    
+    //  let restricted: Bool //Commenting this out for now, as I will need to create my own restricted list.
 }
 
 struct l5rJSON: Codable {
-  let records: Array <CardData>
-  let size: Int
+    let records: Array <CardData>
+    let size: Int
 }
 
 struct packCard : Codable {
-  let illustrator : String
-  let flavor: String?
-  let image_url: String?
-  let pack: Dictionary <String, String>
-  let position: String
-  let quantity: Int
+    let illustrator : String
+    let flavor: String?
+    let image_url: String?
+    let pack: Dictionary <String, String>
+    let position: String
+    let quantity: Int
 }

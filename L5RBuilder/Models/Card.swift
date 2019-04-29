@@ -22,6 +22,7 @@ class Card: Object {
     @objc dynamic var cardType = ""
     @objc dynamic var side = ""
     @objc dynamic var textCanonical: String? = nil
+    @objc dynamic var roleRestriction: String? = ""
     
     //Conflict & Dynasty Properties
     let cost = RealmOptional<Int>()
@@ -32,5 +33,11 @@ class Card: Object {
     
     //Province Properties
     @objc dynamic var strength: String? = nil
+    
+    //Stronghold Properties
+    let fate = RealmOptional<Int>()
+    let honor = RealmOptional<Int>()
+    let influence = RealmOptional<Int>()
+    
     
 }

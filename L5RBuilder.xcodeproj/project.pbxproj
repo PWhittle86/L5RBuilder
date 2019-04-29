@@ -7,12 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22063DC62276F2020035A14A /* conflictDeckBuilder.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22063DC52276F2020035A14A /* conflictDeckBuilder.xib */; };
+		22063DC82276F2140035A14A /* dynastyDeckBuilder.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22063DC72276F2140035A14A /* dynastyDeckBuilder.xib */; };
 		2209DAB72232A5E300755906 /* CardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209DAB62232A5E300755906 /* CardViewCell.swift */; };
 		2209DAC02232C64B00755906 /* L5RFont.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2209DABF2232C64B00755906 /* L5RFont.otf */; };
 		2209EE572195A9760080808E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209EE562195A9760080808E /* Card.swift */; };
 		2216B901223300FB0070AE93 /* DeckListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2216B900223300FB0070AE93 /* DeckListVC.swift */; };
 		2216B903223309C40070AE93 /* DeckListVCAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2216B902223309C40070AE93 /* DeckListVCAddCell.swift */; };
 		222AE28021B19DA800C75868 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 222AE27F21B19DA800C75868 /* Podfile */; };
+		223080942270B01000524113 /* DeckBuilderTabViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223080932270B01000524113 /* DeckBuilderTabViewVC.swift */; };
+		2232E9AF2271F16B00EB0D0C /* DynastyDeckBuilderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2232E9AE2271F16B00EB0D0C /* DynastyDeckBuilderVC.swift */; };
+		2232E9B32271F1B800EB0D0C /* ConflictDeckBuilderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2232E9B22271F1B800EB0D0C /* ConflictDeckBuilderVC.swift */; };
+		2232E9B72271F7DD00EB0D0C /* ConflictDeckIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2232E9B52271F7DD00EB0D0C /* ConflictDeckIcon.png */; };
+		2232E9B82271F7DD00EB0D0C /* DynastyDeckIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2232E9B62271F7DD00EB0D0C /* DynastyDeckIcon.png */; };
+		2232E9BC2271FBF900EB0D0C /* icons8-attack-90.png in Resources */ = {isa = PBXBuildFile; fileRef = 2232E9B92271FBF900EB0D0C /* icons8-attack-90.png */; };
+		2232E9BD2271FBF900EB0D0C /* icons8-attack-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 2232E9BA2271FBF900EB0D0C /* icons8-attack-60.png */; };
+		2232E9BE2271FBF900EB0D0C /* icons8-attack-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 2232E9BB2271FBF900EB0D0C /* icons8-attack-30.png */; };
+		2232E9C22271FC0400EB0D0C /* icons8-pagoda-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 2232E9BF2271FC0300EB0D0C /* icons8-pagoda-30.png */; };
+		2232E9C32271FC0400EB0D0C /* icons8-pagoda-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 2232E9C02271FC0400EB0D0C /* icons8-pagoda-60.png */; };
+		2232E9C42271FC0400EB0D0C /* icons8-pagoda-90.png in Resources */ = {isa = PBXBuildFile; fileRef = 2232E9C12271FC0400EB0D0C /* icons8-pagoda-90.png */; };
 		223749802269ECB30053B244 /* ClanPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2237497F2269ECB30053B244 /* ClanPickerDelegate.swift */; };
 		223749822269ED060053B244 /* StrongholdPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223749812269ED060053B244 /* StrongholdPickerDelegate.swift */; };
 		223749842269ED180053B244 /* RolePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223749832269ED180053B244 /* RolePickerDelegate.swift */; };
@@ -24,8 +37,6 @@
 		2288C1CC21CA515A009842B5 /* cardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2288C1CB21CA515A009842B5 /* cardImage.swift */; };
 		22ABD2BF22394D7900BB3AB6 /* DeckListVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ABD2BE22394D7900BB3AB6 /* DeckListVCCell.swift */; };
 		22ABD2C122394FE000BB3AB6 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ABD2C022394FE000BB3AB6 /* plus.png */; };
-		22ABD2C8223A837B00BB3AB6 /* DeckBuilderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ABD2C6223A837B00BB3AB6 /* DeckBuilderVC.swift */; };
-		22ABD2C9223A837B00BB3AB6 /* DeckBuilderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22ABD2C7223A837B00BB3AB6 /* DeckBuilderVC.xib */; };
 		22E8791421944F63000EC7C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8791321944F63000EC7C3 /* AppDelegate.swift */; };
 		22E8791821944F63000EC7C3 /* CardViewerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8791721944F63000EC7C3 /* CardViewerVC.swift */; };
 		22E8791B21944F63000EC7C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E8791921944F63000EC7C3 /* Main.storyboard */; };
@@ -46,12 +57,25 @@
 
 /* Begin PBXFileReference section */
 		1EDB531658D6B33F3F968E6B /* Pods-L5RBuilder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L5RBuilder.release.xcconfig"; path = "Pods/Target Support Files/Pods-L5RBuilder/Pods-L5RBuilder.release.xcconfig"; sourceTree = "<group>"; };
+		22063DC52276F2020035A14A /* conflictDeckBuilder.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = conflictDeckBuilder.xib; sourceTree = "<group>"; };
+		22063DC72276F2140035A14A /* dynastyDeckBuilder.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = dynastyDeckBuilder.xib; sourceTree = "<group>"; };
 		2209DAB62232A5E300755906 /* CardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewCell.swift; sourceTree = "<group>"; };
 		2209DABF2232C64B00755906 /* L5RFont.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = L5RFont.otf; sourceTree = "<group>"; };
 		2209EE562195A9760080808E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		2216B900223300FB0070AE93 /* DeckListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckListVC.swift; sourceTree = "<group>"; };
 		2216B902223309C40070AE93 /* DeckListVCAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckListVCAddCell.swift; sourceTree = "<group>"; };
 		222AE27F21B19DA800C75868 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		223080932270B01000524113 /* DeckBuilderTabViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckBuilderTabViewVC.swift; sourceTree = "<group>"; };
+		2232E9AE2271F16B00EB0D0C /* DynastyDeckBuilderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynastyDeckBuilderVC.swift; sourceTree = "<group>"; };
+		2232E9B22271F1B800EB0D0C /* ConflictDeckBuilderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConflictDeckBuilderVC.swift; sourceTree = "<group>"; };
+		2232E9B52271F7DD00EB0D0C /* ConflictDeckIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ConflictDeckIcon.png; sourceTree = "<group>"; };
+		2232E9B62271F7DD00EB0D0C /* DynastyDeckIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DynastyDeckIcon.png; sourceTree = "<group>"; };
+		2232E9B92271FBF900EB0D0C /* icons8-attack-90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-attack-90.png"; path = "Attack-30-60-90px/icons8-attack-90.png"; sourceTree = "<group>"; };
+		2232E9BA2271FBF900EB0D0C /* icons8-attack-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-attack-60.png"; path = "Attack-30-60-90px/icons8-attack-60.png"; sourceTree = "<group>"; };
+		2232E9BB2271FBF900EB0D0C /* icons8-attack-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-attack-30.png"; path = "Attack-30-60-90px/icons8-attack-30.png"; sourceTree = "<group>"; };
+		2232E9BF2271FC0300EB0D0C /* icons8-pagoda-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-pagoda-30.png"; path = "Pagoda-30-60-90px/icons8-pagoda-30.png"; sourceTree = "<group>"; };
+		2232E9C02271FC0400EB0D0C /* icons8-pagoda-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-pagoda-60.png"; path = "Pagoda-30-60-90px/icons8-pagoda-60.png"; sourceTree = "<group>"; };
+		2232E9C12271FC0400EB0D0C /* icons8-pagoda-90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-pagoda-90.png"; path = "Pagoda-30-60-90px/icons8-pagoda-90.png"; sourceTree = "<group>"; };
 		2237497F2269ECB30053B244 /* ClanPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanPickerDelegate.swift; sourceTree = "<group>"; };
 		223749812269ED060053B244 /* StrongholdPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrongholdPickerDelegate.swift; sourceTree = "<group>"; };
 		223749832269ED180053B244 /* RolePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolePickerDelegate.swift; sourceTree = "<group>"; };
@@ -65,8 +89,6 @@
 		22ABD2BE22394D7900BB3AB6 /* DeckListVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckListVCCell.swift; sourceTree = "<group>"; };
 		22ABD2C022394FE000BB3AB6 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		22ABD2C52239630F00BB3AB6 /* L5RBuilder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = L5RBuilder.entitlements; sourceTree = "<group>"; };
-		22ABD2C6223A837B00BB3AB6 /* DeckBuilderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckBuilderVC.swift; sourceTree = "<group>"; };
-		22ABD2C7223A837B00BB3AB6 /* DeckBuilderVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeckBuilderVC.xib; sourceTree = "<group>"; };
 		22E8791021944F63000EC7C3 /* L5RBuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = L5RBuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E8791321944F63000EC7C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22E8791721944F63000EC7C3 /* CardViewerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewerVC.swift; sourceTree = "<group>"; };
@@ -119,6 +141,14 @@
 		2209DABE2232C63C00755906 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2232E9BF2271FC0300EB0D0C /* icons8-pagoda-30.png */,
+				2232E9C02271FC0400EB0D0C /* icons8-pagoda-60.png */,
+				2232E9C12271FC0400EB0D0C /* icons8-pagoda-90.png */,
+				2232E9BB2271FBF900EB0D0C /* icons8-attack-30.png */,
+				2232E9BA2271FBF900EB0D0C /* icons8-attack-60.png */,
+				2232E9B92271FBF900EB0D0C /* icons8-attack-90.png */,
+				2232E9B52271F7DD00EB0D0C /* ConflictDeckIcon.png */,
+				2232E9B62271F7DD00EB0D0C /* DynastyDeckIcon.png */,
 				22ABD2C022394FE000BB3AB6 /* plus.png */,
 				2209DABF2232C64B00755906 /* L5RFont.otf */,
 			);
@@ -128,10 +158,10 @@
 		2209EE542195A8DF0080808E /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				2230808E2270A88A00524113 /* DeckbuilderVCs */,
 				22ABD2CA223A91E700BB3AB6 /* NewDeckPopUpVC */,
 				2209DAB82232C05000755906 /* DeckListVC */,
 				2209DAB52232A5A100755906 /* CardViewerVC */,
-				22ABD2C4223955E500BB3AB6 /* DeckBuilderVC */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -145,6 +175,42 @@
 				2288C1CB21CA515A009842B5 /* cardImage.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2230808E2270A88A00524113 /* DeckbuilderVCs */ = {
+			isa = PBXGroup;
+			children = (
+				2232E9B42271F1C500EB0D0C /* Tabview */,
+				2232E9B12271F18B00EB0D0C /* Conflict */,
+				2232E9B02271F17F00EB0D0C /* Dynasty */,
+			);
+			path = DeckbuilderVCs;
+			sourceTree = "<group>";
+		};
+		2232E9B02271F17F00EB0D0C /* Dynasty */ = {
+			isa = PBXGroup;
+			children = (
+				2232E9AE2271F16B00EB0D0C /* DynastyDeckBuilderVC.swift */,
+				22063DC72276F2140035A14A /* dynastyDeckBuilder.xib */,
+			);
+			path = Dynasty;
+			sourceTree = "<group>";
+		};
+		2232E9B12271F18B00EB0D0C /* Conflict */ = {
+			isa = PBXGroup;
+			children = (
+				2232E9B22271F1B800EB0D0C /* ConflictDeckBuilderVC.swift */,
+				22063DC52276F2020035A14A /* conflictDeckBuilder.xib */,
+			);
+			path = Conflict;
+			sourceTree = "<group>";
+		};
+		2232E9B42271F1C500EB0D0C /* Tabview */ = {
+			isa = PBXGroup;
+			children = (
+				223080932270B01000524113 /* DeckBuilderTabViewVC.swift */,
+			);
+			path = Tabview;
 			sourceTree = "<group>";
 		};
 		2237497E2269EC7F0053B244 /* PickerDelegates */ = {
@@ -163,15 +229,6 @@
 				2279887921BAC99000F696F7 /* DBHelper.swift */,
 			);
 			path = DB;
-			sourceTree = "<group>";
-		};
-		22ABD2C4223955E500BB3AB6 /* DeckBuilderVC */ = {
-			isa = PBXGroup;
-			children = (
-				22ABD2C6223A837B00BB3AB6 /* DeckBuilderVC.swift */,
-				22ABD2C7223A837B00BB3AB6 /* DeckBuilderVC.xib */,
-			);
-			path = DeckBuilderVC;
 			sourceTree = "<group>";
 		};
 		22ABD2CA223A91E700BB3AB6 /* NewDeckPopUpVC */ = {
@@ -335,12 +392,21 @@
 			files = (
 				22E8792021944F66000EC7C3 /* LaunchScreen.storyboard in Resources */,
 				22825858224A7371006AF44D /* NewDeckPopUpVC.xib in Resources */,
+				2232E9B82271F7DD00EB0D0C /* DynastyDeckIcon.png in Resources */,
 				2209DAC02232C64B00755906 /* L5RFont.otf in Resources */,
-				22ABD2C9223A837B00BB3AB6 /* DeckBuilderVC.xib in Resources */,
 				22E8791D21944F66000EC7C3 /* Assets.xcassets in Resources */,
+				2232E9B72271F7DD00EB0D0C /* ConflictDeckIcon.png in Resources */,
+				2232E9C32271FC0400EB0D0C /* icons8-pagoda-60.png in Resources */,
 				222AE28021B19DA800C75868 /* Podfile in Resources */,
+				22063DC62276F2020035A14A /* conflictDeckBuilder.xib in Resources */,
+				22063DC82276F2140035A14A /* dynastyDeckBuilder.xib in Resources */,
 				22E8791B21944F63000EC7C3 /* Main.storyboard in Resources */,
+				2232E9C42271FC0400EB0D0C /* icons8-pagoda-90.png in Resources */,
+				2232E9BE2271FBF900EB0D0C /* icons8-attack-30.png in Resources */,
 				22ABD2C122394FE000BB3AB6 /* plus.png in Resources */,
+				2232E9BC2271FBF900EB0D0C /* icons8-attack-90.png in Resources */,
+				2232E9C22271FC0400EB0D0C /* icons8-pagoda-30.png in Resources */,
+				2232E9BD2271FBF900EB0D0C /* icons8-attack-60.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,20 +474,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				223749822269ED060053B244 /* StrongholdPickerDelegate.swift in Sources */,
+				2232E9B32271F1B800EB0D0C /* ConflictDeckBuilderVC.swift in Sources */,
 				22E8791821944F63000EC7C3 /* CardViewerVC.swift in Sources */,
 				22E8791421944F63000EC7C3 /* AppDelegate.swift in Sources */,
 				22ABD2BF22394D7900BB3AB6 /* DeckListVCCell.swift in Sources */,
 				2209DAB72232A5E300755906 /* CardViewCell.swift in Sources */,
 				223749802269ECB30053B244 /* ClanPickerDelegate.swift in Sources */,
 				2279887A21BAC99000F696F7 /* DBHelper.swift in Sources */,
-				22ABD2C8223A837B00BB3AB6 /* DeckBuilderVC.swift in Sources */,
 				227021FA2195E638004F4E99 /* Deck.swift in Sources */,
 				2216B903223309C40070AE93 /* DeckListVCAddCell.swift in Sources */,
 				22825857224A7371006AF44D /* NewDeckPopUpVC.swift in Sources */,
+				2232E9AF2271F16B00EB0D0C /* DynastyDeckBuilderVC.swift in Sources */,
 				2209EE572195A9760080808E /* Card.swift in Sources */,
 				2216B901223300FB0070AE93 /* DeckListVC.swift in Sources */,
 				2279887C21BACB2E00F696F7 /* APICardCodes.swift in Sources */,
 				223749842269ED180053B244 /* RolePickerDelegate.swift in Sources */,
+				223080942270B01000524113 /* DeckBuilderTabViewVC.swift in Sources */,
 				2288C1CC21CA515A009842B5 /* cardImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

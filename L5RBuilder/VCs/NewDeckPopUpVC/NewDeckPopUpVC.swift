@@ -11,7 +11,6 @@ import RealmSwift
 
 class NewDeckPopUpVC: UIViewController{
     
-    
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var okButton: UIBarButtonItem!
     
@@ -25,7 +24,8 @@ class NewDeckPopUpVC: UIViewController{
     var selectedClan: Clan?
     var selectedStronghold: Card?
     var selectedRole: Card?
-    
+//    var navController: UINavigationController?
+
     let clanPickerView = UIPickerView()
     let strongholdPickerView = UIPickerView()
     let rolePickerView = UIPickerView()
@@ -33,12 +33,13 @@ class NewDeckPopUpVC: UIViewController{
     let clanPickerDelegate = ClanPickerDelegate()
     let strongholdPickerDelegate = StrongholdPickerDelegate()
     let rolePickerDelegate = RolePickerDelegate()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpPickerViews()
         hideTextFieldCursors()
-        configureNavController()
+//        self.navController = UINavigationController(rootViewController: self)
+        
         //This is the part you need in order for data to be returned to the view controller from the delegate!
         clanPickerDelegate.delegate = self
         strongholdPickerDelegate.delegate = self
@@ -67,15 +68,7 @@ class NewDeckPopUpVC: UIViewController{
         strongholdTextfield.tintColor = UIColor.clear
     }
     
-    func configureNavController(){
-        
-        if let navController = self.navigationController{
-            navController.navigationBar.barTintColor = UIColor()
-        }
-    }
-    
     func addPickerToolbars(){
-        
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
         toolBar.setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
@@ -108,6 +101,23 @@ class NewDeckPopUpVC: UIViewController{
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func okButtonTapped(_ sender: Any) {
+        
+//        Storyboard has been deleted, but this is how to get access to a storyboard, rather than doing it programatically.
+//        let storyboard = UIStoryboard.init(name: "Deckbuilder", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "deckbuilderTabViewVC")
+
+         if let selectedClan = self.selectedClan,
+            let selectedStronghold = self.selectedStronghold,
+            let selectedRole = selectedRole{
+            
+            let dynastyVC = DynastyDeckBuilderVC(clan: selectedClan, stronghold: selectedStronghold, role: selectedRole)
+            let conflictVC = ConflictDeckBuilderVC(clan: selectedClan, stronghold: selectedStronghold, role: selectedRole)
+            let tabView = DeckBuilderTabViewVC(with: dynastyVC, conflictVC: conflictVC)
+            
+            self.present(tabView, animated: true, completion: nil)
+        }
+    }
 }
 
 extension NewDeckPopUpVC: ClanDataDelegate{

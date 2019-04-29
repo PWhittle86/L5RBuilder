@@ -38,7 +38,11 @@
                                     <action selector="backButtonTapped:" destination="-1" id="qvo-u8-EjR"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" enabled="NO" title="Ok" id="Smb-Gz-C0R"/>
+                            <barButtonItem key="rightBarButtonItem" enabled="NO" title="Ok" id="Smb-Gz-C0R">
+                                <connections>
+                                    <action selector="okButtonTapped:" destination="-1" id="PFe-Li-XRl"/>
+                                </connections>
+                            </barButtonItem>
                         </navigationItem>
                     </items>
                 </navigationBar>

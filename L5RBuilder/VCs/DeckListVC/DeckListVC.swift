@@ -9,7 +9,7 @@
 import UIKit
 
 class DeckListVC: UITableViewController {
-
+    
     let db = DBHelper.sharedInstance
     var userDecks: Array<Deck> = []
     
@@ -18,6 +18,7 @@ class DeckListVC: UITableViewController {
         db.downloadCards()
         downloadImages()
         updateImageDownloadStatus()
+        self.navigationController?.title
     }
 
     // MARK: - Table view data source

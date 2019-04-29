@@ -174,6 +174,11 @@ class DBHelper{
                         dbCard.textCanonical = card.text_canonical
                         dbCard.strengthBonus = card.strength_bonus
                         dbCard.strength = card.strength
+                        dbCard.roleRestriction = card.role_restriction
+                        
+                        dbCard.honor.value = card.honor
+                        dbCard.fate.value = card.fate
+                        dbCard.influence.value = card.influence_pool
                         
                         //Optional ints
                         
