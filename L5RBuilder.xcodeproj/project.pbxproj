@@ -41,6 +41,7 @@
 		22E8792021944F66000EC7C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E8791E21944F66000EC7C3 /* LaunchScreen.storyboard */; };
 		22F02ED222899FEF004938D8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F02ED122899FEF004938D8 /* Coordinator.swift */; };
 		22F02ED42289A06E004938D8 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F02ED32289A06E004938D8 /* Storyboarded.swift */; };
+		22F02ED72289A1EC004938D8 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F02ED62289A1EC004938D8 /* MainCoordinator.swift */; };
 		C8FBFB54B73CCDD2D8BA8398 /* Pods_L5RBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7972B9C46BF7100C39BE4773 /* Pods_L5RBuilder.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +95,7 @@
 		22E8792121944F66000EC7C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22F02ED122899FEF004938D8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		22F02ED32289A06E004938D8 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		22F02ED62289A1EC004938D8 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		7972B9C46BF7100C39BE4773 /* Pods_L5RBuilder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_L5RBuilder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA721619B974D438BABC88EC /* Pods-L5RBuilder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L5RBuilder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-L5RBuilder/Pods-L5RBuilder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -259,17 +261,17 @@
 		22E8791221944F63000EC7C3 /* L5RBuilder */ = {
 			isa = PBXGroup;
 			children = (
-				22F02ED022899FD4004938D8 /* Protocols */,
 				22ABD2C52239630F00BB3AB6 /* L5RBuilder.entitlements */,
-				2209DABE2232C63C00755906 /* Resources */,
+				22E8792121944F66000EC7C3 /* Info.plist */,
+				22E8791321944F63000EC7C3 /* AppDelegate.swift */,
+				22E8791C21944F66000EC7C3 /* Assets.xcassets */,
+				22F02ED52289A1D2004938D8 /* Coordinators */,
 				2279887821BAC7F700F696F7 /* DB */,
 				2209EE552195A8EC0080808E /* Models */,
+				22F02ED022899FD4004938D8 /* Protocols */,
+				2209DABE2232C63C00755906 /* Resources */,
+				22F02ED82289A589004938D8 /* Storyboards */,
 				2209EE542195A8DF0080808E /* VCs */,
-				22E8791321944F63000EC7C3 /* AppDelegate.swift */,
-				22E8791921944F63000EC7C3 /* Main.storyboard */,
-				22E8791C21944F66000EC7C3 /* Assets.xcassets */,
-				22E8791E21944F66000EC7C3 /* LaunchScreen.storyboard */,
-				22E8792121944F66000EC7C3 /* Info.plist */,
 			);
 			path = L5RBuilder;
 			sourceTree = "<group>";
@@ -281,6 +283,23 @@
 				22F02ED32289A06E004938D8 /* Storyboarded.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		22F02ED52289A1D2004938D8 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				22F02ED62289A1EC004938D8 /* MainCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		22F02ED82289A589004938D8 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				22E8791E21944F66000EC7C3 /* LaunchScreen.storyboard */,
+				22E8791921944F63000EC7C3 /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		8ACEBE48D292D93CDAC7CAE8 /* Pods */ = {
@@ -476,6 +495,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				223749822269ED060053B244 /* StrongholdPickerDelegate.swift in Sources */,
+				22F02ED72289A1EC004938D8 /* MainCoordinator.swift in Sources */,
 				2232E9B32271F1B800EB0D0C /* ConflictDeckBuilderVC.swift in Sources */,
 				22E8791821944F63000EC7C3 /* CardViewerVC.swift in Sources */,
 				22E8791421944F63000EC7C3 /* AppDelegate.swift in Sources */,

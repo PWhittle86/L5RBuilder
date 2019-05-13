@@ -13,7 +13,7 @@
         <!--DeckListVC-->
         <scene sceneID="IS7-Nc-xdg">
             <objects>
-                <tableViewController id="70y-kx-DS9" userLabel="DeckListVC" customClass="DeckListVC" customModule="L5RBuilder" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DeckListVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="70y-kx-DS9" userLabel="DeckListVC" customClass="DeckListVC" customModule="L5RBuilder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eCT-0q-Bqu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

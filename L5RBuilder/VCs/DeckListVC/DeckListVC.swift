@@ -8,17 +8,17 @@
 
 import UIKit
 
-class DeckListVC: UITableViewController {
+class DeckListVC: UITableViewController, Storyboarded {
     
     let db = DBHelper.sharedInstance
     var userDecks: Array<Deck> = []
+    weak var coordinator: MainCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         db.downloadCards()
         downloadImages()
         updateImageDownloadStatus()
-        self.navigationController?.title
     }
 
     // MARK: - Table view data source
