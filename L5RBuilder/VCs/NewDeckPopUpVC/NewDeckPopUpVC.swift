@@ -20,8 +20,6 @@ class NewDeckPopUpVC: UIViewController, Storyboarded {
     let db = DBHelper.sharedInstance
     weak var coordinator: MainCoordinator?
     
-    var okButton = UIBarButtonItem()
-    
     var selectedClan: Clan?
     var selectedStronghold: Card?
     var selectedRole: Card?
@@ -38,7 +36,7 @@ class NewDeckPopUpVC: UIViewController, Storyboarded {
         super.viewDidLoad()
         setUpPickerViews()
         hideTextFieldCursors()
-        setUpOKButton()
+        setUpNavBar()
         
         //This is the part you need in order for data to be returned to the view controller from the delegate!
         clanPickerDelegate.delegate = self
@@ -97,11 +95,16 @@ class NewDeckPopUpVC: UIViewController, Storyboarded {
         self.navigationItem.rightBarButtonItem?.isEnabled = true
     }
     
-    func setUpOKButton() {
+    func setUpNavBar() {
         
-        self.okButton = UIBarButtonItem(title: "Ok", style: .plain, target: self, action: Selector(("okButtonTapped")))
+        //OK Button
+        let okButton = UIBarButtonItem(title: "Ok", style: .plain, target: self, action: Selector(("okButtonTapped")))
         self.navigationItem.rightBarButtonItem = okButton
         self.navigationItem.rightBarButtonItem?.isEnabled = false
+        
+        //Title & Font
+        self.title = "New Deck"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "brushtipTexeTRIAL",size: 25)!]
     }
     
     @objc func okButtonTapped() {
