@@ -9,23 +9,22 @@
 import UIKit
 import RealmSwift
 
-class NewDeckPopUpVC: UIViewController{
-    
-
-    @IBOutlet weak var backButton: UIBarButtonItem!
-    @IBOutlet weak var okButton: UIBarButtonItem!
+class NewDeckPopUpVC: UIViewController, Storyboarded {
     
     @IBOutlet weak var clanNameTextfield: UITextField!
     @IBOutlet weak var strongholdTextfield: UITextField!
     @IBOutlet weak var roleTextfield: UITextField!
     
     //TODO: Add imageview & animation for stronghold/clan when selected.
+    
     let db = DBHelper.sharedInstance
+    weak var coordinator: MainCoordinator?
+    
+    var okButton = UIBarButtonItem()
     
     var selectedClan: Clan?
     var selectedStronghold: Card?
     var selectedRole: Card?
-//    var navController: UINavigationController?
 
     let clanPickerView = UIPickerView()
     let strongholdPickerView = UIPickerView()
@@ -34,12 +33,12 @@ class NewDeckPopUpVC: UIViewController{
     let clanPickerDelegate = ClanPickerDelegate()
     let strongholdPickerDelegate = StrongholdPickerDelegate()
     let rolePickerDelegate = RolePickerDelegate()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpPickerViews()
         hideTextFieldCursors()
-//        self.navController = UINavigationController(rootViewController: self)
+        setUpOKButton()
         
         //This is the part you need in order for data to be returned to the view controller from the delegate!
         clanPickerDelegate.delegate = self
@@ -95,15 +94,17 @@ class NewDeckPopUpVC: UIViewController{
               let _ = selectedClan else{
                   return
         }
-        okButton.isEnabled = true
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
     }
     
-    
-    @IBAction func backButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+    func setUpOKButton() {
+        
+        self.okButton = UIBarButtonItem(title: "Ok", style: .plain, target: self, action: Selector(("okButtonTapped")))
+        self.navigationItem.rightBarButtonItem = okButton
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
     }
     
-    @IBAction func okButtonTapped(_ sender: Any) {
+    @objc func okButtonTapped() {
         
 //        Storyboard has been deleted, but this is how to get access to a storyboard, rather than doing it programatically.
 //        let storyboard = UIStoryboard.init(name: "Deckbuilder", bundle: nil)

@@ -14,7 +14,6 @@ class MainCoordinator: Coordinator {
     var navigationController: UINavigationController
     
     init(navigationController: UINavigationController) {
-       
         self.navigationController = navigationController
     }
     
@@ -24,6 +23,11 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(startVC, animated: false)
     }
     
+    func newDeck() {
+        let newDeckVC = NewDeckPopUpVC.instantiate()
+        newDeckVC.coordinator = self
+        navigationController.pushViewController(newDeckVC, animated: true)
+    }
     
     
     

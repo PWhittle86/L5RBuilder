@@ -53,8 +53,7 @@ class DeckListVC: UITableViewController, Storyboarded {
 //            presentNewDeckPopup()
             
 //            Storyboard/segue based code.
-            performSegue(withIdentifier: "newDeck", sender: nil)
-            
+            coordinator?.newDeck()
         }
         
         
