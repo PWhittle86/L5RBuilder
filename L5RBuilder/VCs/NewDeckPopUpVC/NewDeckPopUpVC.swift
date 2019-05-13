@@ -11,6 +11,7 @@ import RealmSwift
 
 class NewDeckPopUpVC: UIViewController{
     
+
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var okButton: UIBarButtonItem!
     
@@ -96,6 +97,7 @@ class NewDeckPopUpVC: UIViewController{
         }
         okButton.isEnabled = true
     }
+    
     
     @IBAction func backButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

@@ -34,7 +34,7 @@ class DeckListVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if (indexPath[1] == userDecks.count){
+        if (indexPath.row == userDecks.count){
             let cell = tableView.dequeueReusableCell(withIdentifier: "DeckListVCCellIdentifier", for: indexPath) as! DeckListVCAddCell
             return cell
         } else {
@@ -46,9 +46,19 @@ class DeckListVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if (indexPath[1] == userDecks.count){
-            presentNewDeckPopup()
+        
+        
+        if (indexPath.row == userDecks.count){
+//            Nib based code.
+//            presentNewDeckPopup()
+            
+//            Storyboard/segue based code.
+            performSegue(withIdentifier: "newDeck", sender: nil)
+            
         }
+        
+        
+        
     }
     
     /*

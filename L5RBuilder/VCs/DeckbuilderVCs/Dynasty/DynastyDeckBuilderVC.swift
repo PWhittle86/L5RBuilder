@@ -42,8 +42,9 @@ class DynastyDeckBuilderVC: UITableViewController {
     func setUpUI(){
         
         let navController = UINavigationController(rootViewController: self)
-        navController.navigationBar.isHidden = false
         
+        navController.navigationBar.backItem?.title = "Back"
+//        navController.navigationBar.
     }
     
     

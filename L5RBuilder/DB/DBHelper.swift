@@ -63,7 +63,6 @@ class DBHelper{
     }
 
     func deleteCard(card:Card){
-        
         let backgroundRealm = try! Realm(configuration: self.cardDBConfig)
         let cards = backgroundRealm.objects(Card.self).filter("id == '\(card.id)'")
         
