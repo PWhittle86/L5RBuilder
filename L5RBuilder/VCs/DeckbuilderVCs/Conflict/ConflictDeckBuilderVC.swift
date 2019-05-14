@@ -10,17 +10,12 @@ import UIKit
 
 class ConflictDeckBuilderVC: UITableViewController {
 
-    var clan: Clan
-    var stronghold: Card
-    var role: Card
+    var deck: Deck
     
     let barButton = UITabBarItem(title: "Conflict", image: UIImage(named: "conflictDeckIcon"), tag: 1)
     
-    init(clan: Clan, stronghold: Card, role: Card) {
-        self.clan = clan
-        self.stronghold = stronghold
-        self.role = role
-        
+    init(deck: Deck) {
+        self.deck = deck
         super.init(nibName: nil, bundle: nil)
     }
     

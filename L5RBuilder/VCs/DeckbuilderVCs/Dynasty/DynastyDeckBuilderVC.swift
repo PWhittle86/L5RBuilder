@@ -9,18 +9,13 @@
 import UIKit
 import RealmSwift
 
-class DynastyDeckBuilderVC: UITableViewController {
+class DynastyDeckBuilderVC: UITableViewController, Storyboarded {
     
-    var clan: Clan
-    var stronghold: Card
-    var role: Card
-    
+    var deck: Deck
     let barButton = UITabBarItem(title: "Dynasty", image: UIImage(named: "dynastyDeckIcon"), tag: 0)
     
-    init(clan: Clan, stronghold: Card, role: Card) {
-        self.clan = clan
-        self.stronghold = stronghold
-        self.role = role
+    init(deck: Deck) {
+        self.deck = deck
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -31,20 +26,12 @@ class DynastyDeckBuilderVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarItem = barButton
-        setUpUI()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-
-    func setUpUI(){
-        
-        let navController = UINavigationController(rootViewController: self)
-        
-        navController.navigationBar.backItem?.title = "Back"
-//        navController.navigationBar.
     }
     
     

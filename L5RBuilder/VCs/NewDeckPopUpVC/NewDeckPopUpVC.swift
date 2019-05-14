@@ -60,6 +60,15 @@ class NewDeckPopUpVC: UIViewController, Storyboarded {
         addPickerToolbars()
     }
     
+    func setUpNavBar() {
+        let okButton = UIBarButtonItem(title: "Ok", style: .plain, target: self, action: Selector(("okButtonTapped")))
+        self.navigationItem.rightBarButtonItem = okButton
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
+        
+        self.title = "New Deck"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "brushtipTexeTRIAL",size: 25)!]
+    }
+    
     func hideTextFieldCursors(){
         clanNameTextfield.tintColor = UIColor.clear
         roleTextfield.tintColor = UIColor.clear
@@ -95,33 +104,14 @@ class NewDeckPopUpVC: UIViewController, Storyboarded {
         self.navigationItem.rightBarButtonItem?.isEnabled = true
     }
     
-    func setUpNavBar() {
-        
-        //OK Button
-        let okButton = UIBarButtonItem(title: "Ok", style: .plain, target: self, action: Selector(("okButtonTapped")))
-        self.navigationItem.rightBarButtonItem = okButton
-        self.navigationItem.rightBarButtonItem?.isEnabled = false
-        
-        //Title & Font
-        self.title = "New Deck"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "brushtipTexeTRIAL",size: 25)!]
-    }
-    
     @objc func okButtonTapped() {
-        
-//        Storyboard has been deleted, but this is how to get access to a storyboard, rather than doing it programatically.
-//        let storyboard = UIStoryboard.init(name: "Deckbuilder", bundle: nil)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "deckbuilderTabViewVC")
 
          if let selectedClan = self.selectedClan,
             let selectedStronghold = self.selectedStronghold,
             let selectedRole = selectedRole{
             
-            let dynastyVC = DynastyDeckBuilderVC(clan: selectedClan, stronghold: selectedStronghold, role: selectedRole)
-            let conflictVC = ConflictDeckBuilderVC(clan: selectedClan, stronghold: selectedStronghold, role: selectedRole)
-            let tabView = DeckBuilderTabViewVC(with: dynastyVC, conflictVC: conflictVC)
-            
-            self.present(tabView, animated: true, completion: nil)
+            let newDeck = Deck(clan: selectedClan, stronghold: selectedStronghold, role: selectedRole)
+            self.coordinator?.buildDeck(startingDeck: newDeck)
         }
     }
 }

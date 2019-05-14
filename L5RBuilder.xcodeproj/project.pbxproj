@@ -42,6 +42,9 @@
 		22F02ED222899FEF004938D8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F02ED122899FEF004938D8 /* Coordinator.swift */; };
 		22F02ED42289A06E004938D8 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F02ED32289A06E004938D8 /* Storyboarded.swift */; };
 		22F02ED72289A1EC004938D8 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F02ED62289A1EC004938D8 /* MainCoordinator.swift */; };
+		22F02EDA228AB716004938D8 /* DynastyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F02ED9228AB716004938D8 /* DynastyCoordinator.swift */; };
+		22F02EDC228AB72C004938D8 /* ConflictCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F02EDB228AB72C004938D8 /* ConflictCoordinator.swift */; };
+		22F02EDE228AD21E004938D8 /* DynastyDeckBuilder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22F02EDD228AD21E004938D8 /* DynastyDeckBuilder.storyboard */; };
 		C8FBFB54B73CCDD2D8BA8398 /* Pods_L5RBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7972B9C46BF7100C39BE4773 /* Pods_L5RBuilder.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +99,9 @@
 		22F02ED122899FEF004938D8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		22F02ED32289A06E004938D8 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		22F02ED62289A1EC004938D8 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		22F02ED9228AB716004938D8 /* DynastyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynastyCoordinator.swift; sourceTree = "<group>"; };
+		22F02EDB228AB72C004938D8 /* ConflictCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConflictCoordinator.swift; sourceTree = "<group>"; };
+		22F02EDD228AD21E004938D8 /* DynastyDeckBuilder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DynastyDeckBuilder.storyboard; sourceTree = "<group>"; };
 		7972B9C46BF7100C39BE4773 /* Pods_L5RBuilder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_L5RBuilder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA721619B974D438BABC88EC /* Pods-L5RBuilder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L5RBuilder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-L5RBuilder/Pods-L5RBuilder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				2232E9AE2271F16B00EB0D0C /* DynastyDeckBuilderVC.swift */,
+				22F02EDD228AD21E004938D8 /* DynastyDeckBuilder.storyboard */,
 			);
 			path = Dynasty;
 			sourceTree = "<group>";
@@ -289,6 +296,8 @@
 			isa = PBXGroup;
 			children = (
 				22F02ED62289A1EC004938D8 /* MainCoordinator.swift */,
+				22F02ED9228AB716004938D8 /* DynastyCoordinator.swift */,
+				22F02EDB228AB72C004938D8 /* ConflictCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -425,6 +434,7 @@
 				2232E9C42271FC0400EB0D0C /* icons8-pagoda-90.png in Resources */,
 				2232E9BE2271FBF900EB0D0C /* icons8-attack-30.png in Resources */,
 				22ABD2C122394FE000BB3AB6 /* plus.png in Resources */,
+				22F02EDE228AD21E004938D8 /* DynastyDeckBuilder.storyboard in Resources */,
 				2232E9BC2271FBF900EB0D0C /* icons8-attack-90.png in Resources */,
 				2232E9C22271FC0400EB0D0C /* icons8-pagoda-30.png in Resources */,
 				2232E9BD2271FBF900EB0D0C /* icons8-attack-60.png in Resources */,
@@ -494,11 +504,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22F02EDC228AB72C004938D8 /* ConflictCoordinator.swift in Sources */,
 				223749822269ED060053B244 /* StrongholdPickerDelegate.swift in Sources */,
 				22F02ED72289A1EC004938D8 /* MainCoordinator.swift in Sources */,
 				2232E9B32271F1B800EB0D0C /* ConflictDeckBuilderVC.swift in Sources */,
 				22E8791821944F63000EC7C3 /* CardViewerVC.swift in Sources */,
 				22E8791421944F63000EC7C3 /* AppDelegate.swift in Sources */,
+				22F02EDA228AB716004938D8 /* DynastyCoordinator.swift in Sources */,
 				22ABD2BF22394D7900BB3AB6 /* DeckListVCCell.swift in Sources */,
 				2209DAB72232A5E300755906 /* CardViewCell.swift in Sources */,
 				22F02ED222899FEF004938D8 /* Coordinator.swift in Sources */,

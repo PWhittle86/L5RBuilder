@@ -29,7 +29,7 @@ class Deck: NSObject {
   var conflictDeck: Array <Card> = []
   var provinceDeck: Array <Card> = []
   
-  init(stronghold: Card, role:Card) {
+    init(clan: Clan, stronghold: Card, role:Card) {
     self.stronghold = stronghold
     self.clan = stronghold.clan
     self.role = role
