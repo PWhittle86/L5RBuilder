@@ -44,21 +44,21 @@ class MainCoordinator: NSObject, Coordinator {
         
         let dynastyChild = DynastyCoordinator(navigationController: navigationController, deck: startingDeck)
         let conflictChild = ConflictCoordinator(navigationController: navigationController, deck: startingDeck)
+        
+        dynastyChild.parentCoordinator = self
+        conflictChild.parentCoordinator = self
+        
         childCoordinators.append(dynastyChild)
         childCoordinators.append(conflictChild)
         
         let deckBuilderTabView = DeckBuilderTabViewVC(with: dynastyChild, conflictCoordinator: conflictChild)
         navigationController.pushViewController(deckBuilderTabView, animated: true)
         
-        
         //Check if user is editing an existing deck
         //If yes, feed data into deckbuilders.
         //If no, open empty deckbuilders configured to their role/stronghold selections.
         //Direct user to deckbuilder tab view
-        
     }
-    
-    
     
 }
 
@@ -72,7 +72,7 @@ extension MainCoordinator: UINavigationControllerDelegate {
         //Check whether the navController's vc array already contains that view controller. If it does, it means we're pushing a different view controller on top rather than popping it, so exit.
         if navigationController.viewControllers.contains(fromViewController) { return }
         
-        //If we've not exited by this point, that means we're popping the vc, so we can check which controller is being popped. Will need additional logic here 
+        //If we've not exited by this point, that means we're popping the vc, so we can check which controller is being popped.
         
     }
     

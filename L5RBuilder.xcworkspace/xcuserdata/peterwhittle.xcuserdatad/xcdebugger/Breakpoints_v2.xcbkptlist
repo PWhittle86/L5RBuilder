@@ -27,5 +27,53 @@
             endingLineNumber = "19">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "L5RBuilder/VCs/DeckbuilderVCs/Tabview/DeckBuilderTabViewVC.swift"
+            timestampString = "579526325.126392"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "init(with:conflictCoordinator:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "L5RBuilder.DeckBuilderTabViewVC.__allocating_init(with: L5RBuilder.DynastyCoordinator, conflictCoordinator: L5RBuilder.ConflictCoordinator) -&gt; L5RBuilder.DeckBuilderTabViewVC"
+                  moduleName = "L5RBuilder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/peterwhittle/Documents/Projects/L5RBuilder/L5RBuilder/L5RBuilder/VCs/DeckbuilderVCs/Tabview/DeckBuilderTabViewVC.swift"
+                  timestampString = "579526325.2130589"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "14">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "L5RBuilder.DeckBuilderTabViewVC.init(with: L5RBuilder.DynastyCoordinator, conflictCoordinator: L5RBuilder.ConflictCoordinator) -&gt; L5RBuilder.DeckBuilderTabViewVC"
+                  moduleName = "L5RBuilder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/peterwhittle/Documents/Projects/L5RBuilder/L5RBuilder/L5RBuilder/VCs/DeckbuilderVCs/Tabview/DeckBuilderTabViewVC.swift"
+                  timestampString = "579526325.214816"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "47">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
