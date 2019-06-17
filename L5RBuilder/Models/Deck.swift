@@ -19,20 +19,21 @@ enum Clan: String, CaseIterable, RawRepresentable {
 }
 
 class Deck: NSObject {
-  
-  var name: String?
-  var clan: String?
-  var role: Card?
-  var stronghold: Card?
-  
-  var dynastyDeck: Array <Card> = []
-  var conflictDeck: Array <Card> = []
-  var provinceDeck: Array <Card> = []
-  
+    
+    //TODO: Don't think these need to be optional?
+    var name: String?
+    var clan: String?
+    var role: Card?
+    var stronghold: Card?
+    
+    var dynastyDeck: Array <Card> = []
+    var conflictDeck: Array <Card> = []
+    var provinceDeck: Array <Card> = []
+    
     init(clan: Clan, stronghold: Card, role:Card) {
-    self.stronghold = stronghold
-    self.clan = stronghold.clan
-    self.role = role
-  }
+        self.stronghold = stronghold
+        self.clan = stronghold.clan
+        self.role = role
+    }
     
 }

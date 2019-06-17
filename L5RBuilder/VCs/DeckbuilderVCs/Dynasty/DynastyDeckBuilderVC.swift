@@ -11,11 +11,13 @@ import RealmSwift
 
 class DynastyDeckBuilderVC: UITableViewController, Storyboarded {
     
+    let db = DBHelper.sharedInstance
     var deck: Deck
-    let barButton = UITabBarItem(title: "Dynasty", image: UIImage(named: "dynastyDeckIcon"), tag: 0)
+    var availableCards: Results<Card>
     
     init(deck: Deck) {
         self.deck = deck
+        availableCards = db.getClanDynastyCards(clan: deck.clan!)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -25,7 +27,7 @@ class DynastyDeckBuilderVC: UITableViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarItem = barButton
+        self.tabBarItem = UITabBarItem(title: "Dynasty", image: UIImage(named: "dynastyDeckIcon"), tag: 0)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

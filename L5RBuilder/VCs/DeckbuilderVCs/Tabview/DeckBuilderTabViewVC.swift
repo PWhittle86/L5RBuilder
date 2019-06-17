@@ -11,14 +11,16 @@ import UIKit
 class DeckBuilderTabViewVC: UITabBarController {
     
     weak var coordinator: MainCoordinator?
+    let dynastyBuilderVC: DynastyDeckBuilderVC
+    let conflictBuilderVC: ConflictDeckBuilderVC
+    var deck: Deck
     
-    let dynasty: DynastyCoordinator
-    let conflict: ConflictCoordinator
-    
-    init(with dynastyCoordinator: DynastyCoordinator, conflictCoordinator: ConflictCoordinator) {
+    init(dynastyBuilder: DynastyDeckBuilderVC, conflictBuilder: ConflictDeckBuilderVC, deck: Deck) {
         
-        self.dynasty = dynastyCoordinator
-        self.conflict = conflictCoordinator
+        self.dynastyBuilderVC = dynastyBuilder
+        self.conflictBuilderVC = conflictBuilder
+        self.deck = deck
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -27,15 +29,15 @@ class DeckBuilderTabViewVC: UITabBarController {
     }
 
     override func viewDidLoad() {
-        self.viewControllers = [dynasty.navigationController, conflict.navigationController]
+        self.viewControllers = [dynastyBuilderVC, conflictBuilderVC]
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         //TODO: Find out why image isn't appearing, and find a better bugfix than selecting conflictVC before the view loads.
-//        self.selectedViewController = conflictVC
-//        self.selectedViewController = dynastyVC
+        self.selectedViewController = conflictBuilderVC
+        self.selectedViewController = dynastyBuilderVC
     }
     
     /*

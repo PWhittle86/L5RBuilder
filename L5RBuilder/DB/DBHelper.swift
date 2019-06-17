@@ -17,7 +17,7 @@ class DBHelper{
     let DB: Realm
     var cardDBConfig = Realm.Configuration()
     
-    private init(dbPath: String){
+    private init(dbPath: String) {
         self.cardDBConfig.fileURL = cardDBConfig.fileURL!.deletingLastPathComponent().appendingPathComponent("\(dbPath).realm")
         do{
             self.DB = try! Realm(configuration: cardDBConfig)
@@ -25,32 +25,37 @@ class DBHelper{
         }
     }
     
-    func getCard(cardID: String) -> Card{
+    func getCard(cardID: String) -> Card {
         let cards = self.DB.objects(Card.self).filter("id == '\(cardID)'")
         return cards[0]
     }
     
-    func getAllCards() -> Results<Card>{
+    func getAllCards() -> Results<Card> {
         return self.DB.objects(Card.self)
     }
     
-    func getAllUnsavedImages() -> Results<Card>{
+    func getAllUnsavedImages() -> Results<Card> {
         let cards = self.DB.objects(Card.self).filter("imageSavedLocally == \(false)")
         return cards
     }
     
-    func getAllRoles() -> Results<Card>{
+    func getAllRoles() -> Results<Card> {
         let cards = self.DB.objects(Card.self).filter("cardType = 'role'")
         return cards
     }
     
-    func getAllStrongholds() -> Results<Card>{
+    func getAllStrongholds() -> Results<Card> {
         let cards = self.DB.objects(Card.self).filter("cardType = 'stronghold'")
         return cards
     }
     
-    func getAllClanStrongholds(clan: String) -> Results<Card>{
+    func getAllClanStrongholds(clan: String) -> Results<Card> {
         let cards = self.DB.objects(Card.self).filter("cardType = 'stronghold' AND clan = '\(clan)'")
+        return cards
+    }
+    
+    func getClanDynastyCards(clan: String) -> Results<Card> {
+        let cards = self.DB.objects(Card.self).filter("side = 'dynasty' AND (clan = '\(clan)' OR clan = 'neutral')")
         return cards
     }
     

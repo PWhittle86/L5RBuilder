@@ -8,11 +8,9 @@
 
 import UIKit
 
-class ConflictDeckBuilderVC: UITableViewController {
+class ConflictDeckBuilderVC: UITableViewController, Storyboarded {
 
     var deck: Deck
-    
-    let barButton = UITabBarItem(title: "Conflict", image: UIImage(named: "conflictDeckIcon"), tag: 1)
     
     init(deck: Deck) {
         self.deck = deck
@@ -25,7 +23,7 @@ class ConflictDeckBuilderVC: UITableViewController {
     
     override func viewDidLoad() {
         
-        self.tabBarItem = barButton
+        self.tabBarItem = UITabBarItem(title: "Conflict", image: UIImage(named: "conflictDeckIcon"), tag: 1)
         super.viewDidLoad()
         
         // Uncomment the following line to preserve selection between presentations
