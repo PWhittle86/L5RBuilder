@@ -29,36 +29,40 @@ class DynastyDeckBuilderVC: UITableViewController, Storyboarded {
         super.viewDidLoad()
         self.tabBarItem = UITabBarItem(title: "Dynasty", image: UIImage(named: "dynastyDeckIcon"), tag: 0)
         
+        let deckbuilderNib = UINib(nibName: "DeckBuilderCardTableViewCell", bundle: nil)
+        self.tableView.register(deckbuilderNib, forCellReuseIdentifier: "DeckBuilderCardTableViewCell")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
-    
-    
-    
-    
-    
 }
 
-extension DynastyDeckBuilderVC: UITableViewDelegate, UITableViewDataSource {
+//MARK: Data source and delegate methods
+
+extension DynastyDeckBuilderVC {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return availableCards.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         
-        // Configure the cell...
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "DeckBuilderCardTableViewCell", for: indexPath) as? DeckBuilderCardTableViewCell {
+            
+            cell.cardNameLabel.text = "IT IS WORKING"
+            cell.cardCountLabel.text = "0/3"
+            
+            return cell
+        }
+        
+        let cell = UITableViewCell()
         
         return cell
     }

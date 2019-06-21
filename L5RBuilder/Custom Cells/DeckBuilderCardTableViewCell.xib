@@ -10,13 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeckBuilderCardTableViewCell" customModule="L5RBuilder" customModuleProvider="target">
-            <connections>
-                <outlet property="cardCountLabel" destination="DWU-NQ-mMN" id="efX-vh-Ikq"/>
-                <outlet property="cardImage" destination="FQX-kU-DsP" id="twD-Il-jmq"/>
-                <outlet property="cardNameLabel" destination="MTj-fO-lDp" id="kkN-2L-nge"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UITableViewCell"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DeckBuilderCardTableViewCell" rowHeight="99" id="KGk-i7-Jjw" customClass="DeckBuilderCardTableViewCell" customModule="L5RBuilder" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="334" height="99"/>
@@ -62,6 +56,11 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cardCountLabel" destination="DWU-NQ-mMN" id="l5m-SE-HZY"/>
+                <outlet property="cardImageView" destination="FQX-kU-DsP" id="crU-9i-Kst"/>
+                <outlet property="cardNameLabel" destination="MTj-fO-lDp" id="KLh-Rt-6ud"/>
+            </connections>
             <point key="canvasLocation" x="127.53623188405798" y="166.40625"/>
         </tableViewCell>
     </objects>
