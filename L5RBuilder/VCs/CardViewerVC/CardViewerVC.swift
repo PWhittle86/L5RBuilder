@@ -18,7 +18,6 @@ class CardViewerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
 }
 
 extension CardViewerVC: UICollectionViewDelegate, UICollectionViewDataSource {

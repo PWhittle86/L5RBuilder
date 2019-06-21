@@ -42,17 +42,9 @@ class DeckBuilderTabViewVC: UITabBarController {
         self.selectedViewController = dynastyBuilderVC
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
+        //Function to update the title of the tab bar controller based upon the table view controller being shown.
         
         let barItemIndex = tabBar.items?.firstIndex(of: item)
         

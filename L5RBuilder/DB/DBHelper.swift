@@ -59,6 +59,11 @@ class DBHelper{
         return cards
     }
     
+    func getConflictCards() -> Results<Card> {
+        let cards = self.DB.objects(Card.self).filter("side = 'conflict'")
+        return cards
+    }
+    
     func addCard(card: Card){
         OperationQueue.main.addOperation {
             try! self.DB.write{

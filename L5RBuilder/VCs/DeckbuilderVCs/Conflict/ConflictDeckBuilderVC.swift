@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ConflictDeckBuilderVC: UITableViewController, Storyboarded {
-
+    
+    let db = DBHelper.sharedInstance
     var deck: Deck
+    var availableCards: Results<Card>
     
     init(deck: Deck) {
         self.deck = deck
+        availableCards = db.getConflictCards()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -26,27 +30,29 @@ class ConflictDeckBuilderVC: UITableViewController, Storyboarded {
         self.tabBarItem = UITabBarItem(title: "Conflict", image: UIImage(named: "conflictDeckIcon"), tag: 1)
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
+        let deckbuilderNib = UINib(nibName: "DeckBuilderCardTableViewCell", bundle: nil)
+        self.tableView.register(deckbuilderNib, forCellReuseIdentifier: "DeckBuilderCardTableViewCell")
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return availableCards.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "DeckBuilderCardTableViewCell", for: indexPath) as? DeckBuilderCardTableViewCell {
+            cell.setUpCell(indexPath: indexPath, availableCards: self.availableCards)
+            return cell
+        }
+        
+        let cell = UITableViewCell()
         return cell
     }
 

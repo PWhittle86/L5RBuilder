@@ -51,13 +51,11 @@ extension DynastyDeckBuilderVC {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "DeckBuilderCardTableViewCell", for: indexPath) as? DeckBuilderCardTableViewCell {
-            
             cell.setUpCell(indexPath: indexPath, availableCards: self.availableCards)
             return cell
         }
         
         let cell = UITableViewCell()
-        
         return cell
     }
     
