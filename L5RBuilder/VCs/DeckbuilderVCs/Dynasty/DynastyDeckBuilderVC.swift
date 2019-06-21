@@ -56,9 +56,7 @@ extension DynastyDeckBuilderVC {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "DeckBuilderCardTableViewCell", for: indexPath) as? DeckBuilderCardTableViewCell {
             
-            cell.cardNameLabel.text = "IT IS WORKING"
-            cell.cardCountLabel.text = "0/3"
-            
+            cell.setUpCell(indexPath: indexPath, availableCards: self.availableCards)
             return cell
         }
         

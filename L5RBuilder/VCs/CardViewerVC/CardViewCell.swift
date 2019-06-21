@@ -30,11 +30,11 @@ class CardViewCell: UICollectionViewCell {
             return
         }
         let imageFolderURL = documentsURL.appendingPathComponent("images", isDirectory: true)
-        let imageURL = imageFolderURL.appendingPathComponent(allCards[indexpath[1]].id).appendingPathExtension("jpg")
+        let imageURL = imageFolderURL.appendingPathComponent(allCards[indexpath.row].id).appendingPathExtension("jpg")
         let locatedImage = UIImage(contentsOfFile: imageURL.path)
         
         self.cardImageView.image = locatedImage
-        self.cardLabel.text = allCards[indexpath[1]].name
+        self.cardLabel.text = allCards[indexpath.row].name
         
     }
     

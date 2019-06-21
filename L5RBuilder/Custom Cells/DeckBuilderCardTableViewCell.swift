@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DeckBuilderCardTableViewCell: UITableViewCell {
 
@@ -23,8 +24,22 @@ class DeckBuilderCardTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    class func reUseIdentifier() -> String{
+    class func reUseIdentifier() -> String {
         return String(describing: self)
+    }
+    
+    func setUpCell(indexPath: IndexPath, availableCards: Results<Card>){
+        
+        guard let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            print("Error: Unable to access default documents URL.")
+            return
+        }
+        let imageFolderURL = documentsURL.appendingPathComponent("images", isDirectory: true)
+        let imageURL = imageFolderURL.appendingPathComponent(availableCards[indexPath.row].id).appendingPathExtension("jpg")
+        let locatedImage = UIImage(contentsOfFile: imageURL.path)
+        
+        self.cardImageView.image = locatedImage
+        self.cardNameLabel.text = availableCards[indexPath.row].name
     }
     
 }
