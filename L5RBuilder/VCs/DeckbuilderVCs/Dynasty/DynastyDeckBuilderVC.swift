@@ -31,11 +31,7 @@ class DynastyDeckBuilderVC: UITableViewController, Storyboarded {
         
         let deckbuilderNib = UINib(nibName: "DeckBuilderCardTableViewCell", bundle: nil)
         self.tableView.register(deckbuilderNib, forCellReuseIdentifier: "DeckBuilderCardTableViewCell")
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+
     }
 }
 

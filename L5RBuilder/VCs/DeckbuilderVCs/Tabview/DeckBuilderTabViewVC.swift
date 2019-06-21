@@ -22,6 +22,8 @@ class DeckBuilderTabViewVC: UITabBarController {
         self.deck = deck
         
         super.init(nibName: nil, bundle: nil)
+        
+        self.title = "Dynasty Deck"
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -50,4 +52,24 @@ class DeckBuilderTabViewVC: UITabBarController {
     }
     */
 
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
+        let barItemIndex = tabBar.items?.firstIndex(of: item)
+        
+        let dynastyIndex = self.viewControllers?.firstIndex(of: dynastyBuilderVC)
+        let conflictIndex = self.viewControllers?.firstIndex(of: conflictBuilderVC)
+        
+        switch barItemIndex {
+        case dynastyIndex:
+            self.title = "Dynasty Deck"
+            break
+        case conflictIndex:
+            self.title = "Conflict Deck"
+            break
+        default:
+            self.title = "Deck Builder"
+            break
+        }
+    }
+    
 }
