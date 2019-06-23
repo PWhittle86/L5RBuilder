@@ -29,6 +29,7 @@
 		223749842269ED180053B244 /* RolePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223749832269ED180053B244 /* RolePickerDelegate.swift */; };
 		223F700E22B796C9007D7429 /* DeckBuilderCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223F700C22B796C9007D7429 /* DeckBuilderCardTableViewCell.swift */; };
 		223F700F22B796C9007D7429 /* DeckBuilderCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223F700D22B796C9007D7429 /* DeckBuilderCardTableViewCell.xib */; };
+		223F701322BFCCC6007D7429 /* settingsIcon50px.png in Resources */ = {isa = PBXBuildFile; fileRef = 223F701222BFCCC6007D7429 /* settingsIcon50px.png */; };
 		227021FA2195E638004F4E99 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227021F92195E638004F4E99 /* Deck.swift */; };
 		2279887A21BAC99000F696F7 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2279887921BAC99000F696F7 /* DBHelper.swift */; };
 		2279887C21BACB2E00F696F7 /* APICardCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2279887B21BACB2E00F696F7 /* APICardCodes.swift */; };
@@ -81,6 +82,7 @@
 		223749832269ED180053B244 /* RolePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolePickerDelegate.swift; sourceTree = "<group>"; };
 		223F700C22B796C9007D7429 /* DeckBuilderCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckBuilderCardTableViewCell.swift; sourceTree = "<group>"; };
 		223F700D22B796C9007D7429 /* DeckBuilderCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeckBuilderCardTableViewCell.xib; sourceTree = "<group>"; };
+		223F701222BFCCC6007D7429 /* settingsIcon50px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsIcon50px.png; sourceTree = "<group>"; };
 		227021F92195E638004F4E99 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		2279887921BAC99000F696F7 /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		2279887B21BACB2E00F696F7 /* APICardCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICardCodes.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 		2209DABE2232C63C00755906 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				223F701222BFCCC6007D7429 /* settingsIcon50px.png */,
 				2232E9BF2271FC0300EB0D0C /* icons8-pagoda-30.png */,
 				2232E9C02271FC0400EB0D0C /* icons8-pagoda-60.png */,
 				2232E9C12271FC0400EB0D0C /* icons8-pagoda-90.png */,
@@ -442,6 +445,7 @@
 				22ABD2C122394FE000BB3AB6 /* plus.png in Resources */,
 				2232E9BC2271FBF900EB0D0C /* icons8-attack-90.png in Resources */,
 				2232E9C22271FC0400EB0D0C /* icons8-pagoda-30.png in Resources */,
+				223F701322BFCCC6007D7429 /* settingsIcon50px.png in Resources */,
 				2232E9BD2271FBF900EB0D0C /* icons8-attack-60.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DeckBuilderTabViewVC: UITabBarController {
+@objcMembers class DeckBuilderTabViewVC: UITabBarController {
     
     weak var coordinator: MainCoordinator?
     let dynastyBuilderVC: DynastyDeckBuilderVC
@@ -33,6 +33,17 @@ class DeckBuilderTabViewVC: UITabBarController {
     override func viewDidLoad() {
         self.viewControllers = [dynastyBuilderVC, conflictBuilderVC]
         super.viewDidLoad()
+        
+        let searchButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.search, target: self, action: #selector(self.searchFunction))
+        self.navigationItem.rightBarButtonItems?.append(searchButton)
+        
+        let settingsButton = UIBarButtonItem(image: UIImage(named: "settingsIcon50px"), style: .plain, target: self, action: #selector(self.settingsFunction))
+        self.navigationItem.rightBarButtonItems?.append(settingsButton)
+        
+        self.navigationItem.setRightBarButtonItems([settingsButton, searchButton], animated: true)
+        
+//        let button1 = UIBarButtonItem(image: UIImage(named: "imagename"), style: .plain, target: self, action: Selector("action")) // action:#selector(Class.MethodName) for swift 3
+//        self.navigationItem.rightBarButtonItem  = button1
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +51,14 @@ class DeckBuilderTabViewVC: UITabBarController {
         //TODO: Find out why image isn't appearing, and find a better bugfix than selecting conflictVC before the view loads.
         self.selectedViewController = conflictBuilderVC
         self.selectedViewController = dynastyBuilderVC
+    }
+    
+    @objc func searchFunction(){
+        print("SEARCH FUNCTION WORKING")
+    }
+    
+    @objc func settingsFunction(){
+        print("SETTINGS FUNCTION WORKING")
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
