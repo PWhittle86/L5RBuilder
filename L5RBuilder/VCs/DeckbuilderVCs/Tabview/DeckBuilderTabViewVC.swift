@@ -34,10 +34,11 @@ import UIKit
         self.viewControllers = [dynastyBuilderVC, conflictBuilderVC]
         super.viewDidLoad()
         
-        let searchButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.search, target: self, action: #selector(self.searchFunction))
+//        let searchButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.search, target: self, action: #selector(self.searchFunction))
+        let searchButton = UIBarButtonItem(image: UIImage(named: "searchIcon30px"), style: .plain, target: self, action: #selector(self.searchFunction))
         self.navigationItem.rightBarButtonItems?.append(searchButton)
         
-        let settingsButton = UIBarButtonItem(image: UIImage(named: "settingsIcon50px"), style: .plain, target: self, action: #selector(self.settingsFunction))
+        let settingsButton = UIBarButtonItem(image: UIImage(named: "settingsIcon30px"), style: .plain, target: self, action: #selector(self.settingsFunction))
         self.navigationItem.rightBarButtonItems?.append(settingsButton)
         
         self.navigationItem.setRightBarButtonItems([settingsButton, searchButton], animated: true)
