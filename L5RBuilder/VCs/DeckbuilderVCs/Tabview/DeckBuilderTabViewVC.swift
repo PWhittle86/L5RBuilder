@@ -34,7 +34,6 @@ import UIKit
         self.viewControllers = [dynastyBuilderVC, conflictBuilderVC]
         super.viewDidLoad()
         
-//        let searchButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.search, target: self, action: #selector(self.searchFunction))
         let searchButton = UIBarButtonItem(image: UIImage(named: "searchIcon30px"), style: .plain, target: self, action: #selector(self.searchFunction))
         self.navigationItem.rightBarButtonItems?.append(searchButton)
         
@@ -43,8 +42,7 @@ import UIKit
         
         self.navigationItem.setRightBarButtonItems([settingsButton, searchButton], animated: true)
         
-//        let button1 = UIBarButtonItem(image: UIImage(named: "imagename"), style: .plain, target: self, action: Selector("action")) // action:#selector(Class.MethodName) for swift 3
-//        self.navigationItem.rightBarButtonItem  = button1
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

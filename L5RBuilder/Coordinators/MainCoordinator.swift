@@ -50,7 +50,8 @@ class MainCoordinator: NSObject, Coordinator {
         //TODO: Find a better way to get rid of NewDeckVC.
         navigationController.popViewController(animated: true)
         navigationController.pushViewController(deckBuilderTabView, animated: true)
-        
+        navigationController.setNavigationBarHidden(true, animated: true)
+
         //Check if user is editing an existing deck
         //If yes, feed data into deckbuilders.
         //If no, open empty deckbuilders configured to their role/stronghold selections.

@@ -11,6 +11,7 @@ import RealmSwift
 
 class DynastyDeckBuilderVC: UITableViewController, Storyboarded {
     
+    weak var coordinator: MainCoordinator?
     let db = DBHelper.sharedInstance
     var deck: Deck
     var availableCards: Results<Card>
@@ -31,7 +32,6 @@ class DynastyDeckBuilderVC: UITableViewController, Storyboarded {
         
         let deckbuilderNib = UINib(nibName: "DeckBuilderCardTableViewCell", bundle: nil)
         self.tableView.register(deckbuilderNib, forCellReuseIdentifier: "DeckBuilderCardTableViewCell")
-
     }
 }
 

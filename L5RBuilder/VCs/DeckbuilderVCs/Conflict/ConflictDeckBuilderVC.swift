@@ -11,6 +11,7 @@ import RealmSwift
 
 class ConflictDeckBuilderVC: UITableViewController, Storyboarded {
     
+    weak var coordinator: MainCoordinator?
     let db = DBHelper.sharedInstance
     var deck: Deck
     var availableCards: Results<Card>
