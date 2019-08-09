@@ -61,12 +61,29 @@ extension DynastyDeckBuilderVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let selectedCard = availableCards[indexPath.row]
-        coordinator?.showDynastyCard(selectedCard: selectedCard, delegate: self)
+        let selectedCardsInDeckCount = self.deck.dynastyDeck.filter({$0.id == selectedCard.id}).count
+        print("I clicked a card to edit. There are currently \(selectedCardsInDeckCount) copies of \(selectedCard.id) in the dynasty deck.")
+        coordinator?.showDynastyCard(selectedCard: selectedCard, delegate: self, cardsInDeckCount: selectedCardsInDeckCount)
     }
     
-    func addCards(cardID: String, number: Int) {
+    func addCards(card: Card, numberOfCards: Int) {
         
-        print(cardID, number)
+        let selectedCardsInDeckCount = self.deck.dynastyDeck.filter({$0.id == card.id}).count
+        
+        if selectedCardsInDeckCount != numberOfCards {
+            
+            self.deck.dynastyDeck.removeAll(where: {$0.id == card.id})
+            
+            if numberOfCards > 0 {
+                var i = 0
+                while i < numberOfCards {
+                    self.deck.dynastyDeck.append(card)
+                    i = i+1
+                }
+            }
+        }
+        
+        print("There are now \(self.deck.dynastyDeck.filter({$0.id == card.id}).count) copies of \(card.id) in the dynasty deck.")
         
     }
     

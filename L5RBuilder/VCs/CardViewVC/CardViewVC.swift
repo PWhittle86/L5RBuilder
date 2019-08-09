@@ -9,7 +9,7 @@
 import UIKit
 
 protocol cardViewDelegate: class {
-    func addCards(cardID: String, number: Int)
+    func addCards(card: Card, numberOfCards: Int)
 }
 
 class CardViewVC: UIViewController  {
@@ -27,9 +27,9 @@ class CardViewVC: UIViewController  {
     let card: Card
     var cardsCount: Int
     
-    init(card: Card) {
+    init(card: Card, cardCount: Int) {
         self.card = card
-        self.cardsCount = 0
+        self.cardsCount = cardCount
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -41,6 +41,7 @@ class CardViewVC: UIViewController  {
         setUpImage()
         setUpLabels()
         cardCountSegmentControl.addTarget(self, action: Selector(("updateCardCount")), for: .valueChanged)
+        cardCountSegmentControl.selectedSegmentIndex = cardsCount
         super.viewDidLoad()
     }
     
@@ -82,13 +83,13 @@ class CardViewVC: UIViewController  {
     }
     
     @IBAction func closeButtonTapped(_ sender: Any) {
-        self.delegate?.addCards(cardID: card.id, number: cardsCount)
+        self.delegate?.addCards(card: self.card, numberOfCards: cardsCount)
         self.dismiss(animated: true, completion: nil)
     }
     
     @objc func updateCardCount() {
         self.cardsCount = cardCountSegmentControl.selectedSegmentIndex
-        print(cardsCount)
+        print("\(cardsCount) \(card.id) cards selected.")
     }
     
 }

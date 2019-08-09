@@ -60,9 +60,9 @@ class MainCoordinator: NSObject, Coordinator {
         //Direct user to deckbuilder tab view
     }
     
-    func showDynastyCard(selectedCard: Card, delegate: DynastyDeckBuilderVC) {
+    func showDynastyCard(selectedCard: Card, delegate: DynastyDeckBuilderVC, cardsInDeckCount: Int) {
         
-        let cardViewVC = CardViewVC(card: selectedCard)
+        let cardViewVC = CardViewVC(card: selectedCard, cardCount: cardsInDeckCount)
         cardViewVC.delegate = delegate
         navigationController.present(cardViewVC, animated: true, completion: nil)
     }
