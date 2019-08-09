@@ -9,8 +9,8 @@
 import UIKit
 import RealmSwift
 
-class DynastyDeckBuilderVC: UITableViewController, Storyboarded {
-    
+class DynastyDeckBuilderVC: UITableViewController, cardViewDelegate, Storyboarded {
+
     weak var coordinator: MainCoordinator?
     let db = DBHelper.sharedInstance
     var deck: Deck
@@ -44,7 +44,6 @@ extension DynastyDeckBuilderVC {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return availableCards.count
     }
     
@@ -57,6 +56,18 @@ extension DynastyDeckBuilderVC {
         
         let cell = UITableViewCell()
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selectedCard = availableCards[indexPath.row]
+        coordinator?.showDynastyCard(selectedCard: selectedCard, delegate: self)
+    }
+    
+    func addCards(cardID: String, number: Int) {
+        
+        print(cardID, number)
+        
     }
     
 }

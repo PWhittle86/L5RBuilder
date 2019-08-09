@@ -35,7 +35,6 @@ class CardViewCell: UICollectionViewCell {
         
         self.cardImageView.image = locatedImage
         self.cardLabel.text = allCards[indexpath.row].name
-        
     }
     
 }

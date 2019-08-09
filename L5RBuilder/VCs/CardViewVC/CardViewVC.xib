@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardViewVC" customModule="L5RBuilder" customModuleProvider="target">
+            <connections>
+                <outlet property="cardCountSegmentControl" destination="xO8-Xs-0HT" id="nXu-99-0gp"/>
+                <outlet property="cardImageView" destination="8ot-K9-4Es" id="4UT-lY-vX8"/>
+                <outlet property="cardTitleLabel" destination="LwK-z9-KFZ" id="9BC-Bx-owY"/>
+                <outlet property="cardTraitsLabel" destination="W3y-dE-6CF" id="i2l-QM-wKB"/>
+                <outlet property="closeButton" destination="DAx-8a-Gde" id="0n8-SJ-ehM"/>
+                <outlet property="view" destination="8gF-WI-41N" id="d0M-5j-QAx"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="8gF-WI-41N">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="4It-58-Blp">
+                    <rect key="frame" x="14" y="40" width="347" height="562"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Fate Worse Than Death" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LwK-z9-KFZ">
+                            <rect key="frame" x="76.5" y="0.0" width="194.5" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="YUi-6h-uIW"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8ot-K9-4Es">
+                            <rect key="frame" x="0.0" y="41" width="347" height="485"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="8ot-K9-4Es" secondAttribute="height" multiplier="240:335" id="Go1-IK-3rj"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trait, Trait, Trait" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3y-dE-6CF">
+                            <rect key="frame" x="116.5" y="537" width="114" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="MVY-P7-i5l"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAx-8a-Gde">
+                    <rect key="frame" x="340" y="30" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="6yd-bu-E2X"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="Abr-td-Rva"/>
+                        <constraint firstAttribute="height" constant="25" id="SDk-AO-YTX"/>
+                        <constraint firstAttribute="width" constant="25" id="gym-gx-Nju"/>
+                    </constraints>
+                    <state key="normal" image="cancelIcon.png"/>
+                    <connections>
+                        <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="ubj-kh-81d"/>
+                    </connections>
+                </button>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xO8-Xs-0HT">
+                    <rect key="frame" x="140" y="617" width="95" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="4Qy-KD-aQm"/>
+                    </constraints>
+                    <segments>
+                        <segment title="0"/>
+                        <segment title="1"/>
+                        <segment title="2"/>
+                        <segment title="3"/>
+                    </segments>
+                </segmentedControl>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="4It-58-Blp" firstAttribute="top" secondItem="gN0-hA-Nl0" secondAttribute="top" constant="20" id="8fO-TX-LC5"/>
+                <constraint firstItem="4It-58-Blp" firstAttribute="centerX" secondItem="8gF-WI-41N" secondAttribute="centerX" id="A9x-4q-9B0"/>
+                <constraint firstItem="DAx-8a-Gde" firstAttribute="top" secondItem="gN0-hA-Nl0" secondAttribute="top" constant="10" id="Fuc-FA-OOC"/>
+                <constraint firstItem="gN0-hA-Nl0" firstAttribute="trailing" secondItem="DAx-8a-Gde" secondAttribute="trailing" constant="10" id="HnU-Tl-5bw"/>
+                <constraint firstItem="gN0-hA-Nl0" firstAttribute="bottom" secondItem="xO8-Xs-0HT" secondAttribute="bottom" constant="20" id="V0o-eK-CqX"/>
+                <constraint firstItem="xO8-Xs-0HT" firstAttribute="centerX" secondItem="4It-58-Blp" secondAttribute="centerX" id="bri-oN-ZpY"/>
+                <constraint firstItem="xO8-Xs-0HT" firstAttribute="top" secondItem="4It-58-Blp" secondAttribute="bottom" constant="15" id="yRY-f6-QDB"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="gN0-hA-Nl0"/>
+            <point key="canvasLocation" x="228.80000000000001" y="25.187406296851577"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="cancelIcon.png" width="50" height="50"/>
+    </resources>
+</document>

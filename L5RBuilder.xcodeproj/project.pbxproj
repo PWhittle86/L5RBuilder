@@ -34,6 +34,9 @@
 		227021FA2195E638004F4E99 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227021F92195E638004F4E99 /* Deck.swift */; };
 		2279887A21BAC99000F696F7 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2279887921BAC99000F696F7 /* DBHelper.swift */; };
 		2279887C21BACB2E00F696F7 /* APICardCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2279887B21BACB2E00F696F7 /* APICardCodes.swift */; };
+		227EF0F922EB0E4F00275DD6 /* CardViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227EF0F722EB0E4F00275DD6 /* CardViewVC.swift */; };
+		227EF0FA22EB0E4F00275DD6 /* CardViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 227EF0F822EB0E4F00275DD6 /* CardViewVC.xib */; };
+		227EF0FC22EB42C900275DD6 /* cancelIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 227EF0FB22EB42C800275DD6 /* cancelIcon.png */; };
 		22825857224A7371006AF44D /* NewDeckPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22825855224A7371006AF44D /* NewDeckPopUpVC.swift */; };
 		2288C1CC21CA515A009842B5 /* cardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2288C1CB21CA515A009842B5 /* cardImage.swift */; };
 		22ABD2BF22394D7900BB3AB6 /* DeckListVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ABD2BE22394D7900BB3AB6 /* DeckListVCCell.swift */; };
@@ -88,6 +91,9 @@
 		227021F92195E638004F4E99 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		2279887921BAC99000F696F7 /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		2279887B21BACB2E00F696F7 /* APICardCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICardCodes.swift; sourceTree = "<group>"; };
+		227EF0F722EB0E4F00275DD6 /* CardViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewVC.swift; sourceTree = "<group>"; };
+		227EF0F822EB0E4F00275DD6 /* CardViewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardViewVC.xib; sourceTree = "<group>"; };
+		227EF0FB22EB42C800275DD6 /* cancelIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancelIcon.png; sourceTree = "<group>"; };
 		22825855224A7371006AF44D /* NewDeckPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDeckPopUpVC.swift; sourceTree = "<group>"; };
 		2288C1CB21CA515A009842B5 /* cardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardImage.swift; sourceTree = "<group>"; };
 		2288C1D321CA5E50009842B5 /* L5RBuilderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = L5RBuilderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +155,7 @@
 		2209DABE2232C63C00755906 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				227EF0FB22EB42C800275DD6 /* cancelIcon.png */,
 				223F701422C0D4B4007D7429 /* searchIcon30px.png */,
 				223F701222BFCCC6007D7429 /* settingsIcon30px.png */,
 				2232E9BF2271FC0300EB0D0C /* icons8-pagoda-30.png */,
@@ -168,6 +175,7 @@
 		2209EE542195A8DF0080808E /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				227EF0F022EB093700275DD6 /* CardViewVC */,
 				2230808E2270A88A00524113 /* DeckbuilderVCs */,
 				22ABD2CA223A91E700BB3AB6 /* NewDeckPopUpVC */,
 				2209DAB82232C05000755906 /* DeckListVC */,
@@ -237,6 +245,15 @@
 				2279887921BAC99000F696F7 /* DBHelper.swift */,
 			);
 			path = DB;
+			sourceTree = "<group>";
+		};
+		227EF0F022EB093700275DD6 /* CardViewVC */ = {
+			isa = PBXGroup;
+			children = (
+				227EF0F722EB0E4F00275DD6 /* CardViewVC.swift */,
+				227EF0F822EB0E4F00275DD6 /* CardViewVC.xib */,
+			);
+			path = CardViewVC;
 			sourceTree = "<group>";
 		};
 		2286F398228C198200006461 /* Custom Cells */ = {
@@ -435,6 +452,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22E8792021944F66000EC7C3 /* LaunchScreen.storyboard in Resources */,
+				227EF0FA22EB0E4F00275DD6 /* CardViewVC.xib in Resources */,
 				2232E9B82271F7DD00EB0D0C /* DynastyDeckIcon.png in Resources */,
 				2209DAC02232C64B00755906 /* L5RFont.otf in Resources */,
 				22E8791D21944F66000EC7C3 /* Assets.xcassets in Resources */,
@@ -446,6 +464,7 @@
 				2232E9C42271FC0400EB0D0C /* icons8-pagoda-90.png in Resources */,
 				2232E9BE2271FBF900EB0D0C /* icons8-attack-30.png in Resources */,
 				22ABD2C122394FE000BB3AB6 /* plus.png in Resources */,
+				227EF0FC22EB42C900275DD6 /* cancelIcon.png in Resources */,
 				2232E9BC2271FBF900EB0D0C /* icons8-attack-90.png in Resources */,
 				2232E9C22271FC0400EB0D0C /* icons8-pagoda-30.png in Resources */,
 				223F701322BFCCC6007D7429 /* settingsIcon30px.png in Resources */,
@@ -539,6 +558,7 @@
 				223749842269ED180053B244 /* RolePickerDelegate.swift in Sources */,
 				223080942270B01000524113 /* DeckBuilderTabViewVC.swift in Sources */,
 				2288C1CC21CA515A009842B5 /* cardImage.swift in Sources */,
+				227EF0F922EB0E4F00275DD6 /* CardViewVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -43,20 +43,30 @@ class MainCoordinator: NSObject, Coordinator {
     func buildDeck(startingDeck: Deck) {
         
         let dynastyVC = DynastyDeckBuilderVC(deck: startingDeck)
+        dynastyVC.coordinator = self
+        
         let conflictVC = ConflictDeckBuilderVC(deck: startingDeck)
+        conflictVC.coordinator = self
         
         let deckBuilderTabView = DeckBuilderTabViewVC(dynastyBuilder: dynastyVC, conflictBuilder: conflictVC, deck: startingDeck)
         
         //TODO: Find a better way to get rid of NewDeckVC.
         navigationController.popViewController(animated: true)
         navigationController.pushViewController(deckBuilderTabView, animated: true)
-        navigationController.setNavigationBarHidden(true, animated: true)
 
         //Check if user is editing an existing deck
         //If yes, feed data into deckbuilders.
         //If no, open empty deckbuilders configured to their role/stronghold selections.
         //Direct user to deckbuilder tab view
     }
+    
+    func showDynastyCard(selectedCard: Card, delegate: DynastyDeckBuilderVC) {
+        
+        let cardViewVC = CardViewVC(card: selectedCard)
+        cardViewVC.delegate = delegate
+        navigationController.present(cardViewVC, animated: true, completion: nil)
+    }
+    
 }
 
 extension MainCoordinator: UINavigationControllerDelegate {

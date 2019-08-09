@@ -20,7 +20,6 @@ enum Clan: String, CaseIterable, RawRepresentable {
 
 class Deck: NSObject {
     
-    //TODO: Don't think these need to be optional?
     var name: String?
     var clan: String?
     var role: Card?

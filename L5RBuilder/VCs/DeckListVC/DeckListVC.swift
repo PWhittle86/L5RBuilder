@@ -16,6 +16,8 @@ class DeckListVC: UITableViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "L5RBuilder"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "brushtipTexeTRIAL",size: 25)!]
         db.downloadCards()
         downloadImages()
         updateImageDownloadStatus()
