@@ -28,7 +28,7 @@ class DeckBuilderCardTableViewCell: UITableViewCell {
         return String(describing: self)
     }
     
-    func setUpCell(indexPath: IndexPath, availableCards: Results<Card>){
+    func setUpCell(indexPath: IndexPath, availableCards: Results<Card>, cardCount: Int?){
         
         guard let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
             print("Error: Unable to access default documents URL.")
@@ -40,6 +40,7 @@ class DeckBuilderCardTableViewCell: UITableViewCell {
         
         self.cardImageView.image = locatedImage
         self.cardNameLabel.text = availableCards[indexPath.row].name
+        self.cardCountLabel.text = "\(cardCount ?? 0)/3"
     }
     
 }

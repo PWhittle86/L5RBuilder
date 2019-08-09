@@ -27,6 +27,7 @@ class DynastyDeckBuilderVC: UITableViewController, cardViewDelegate, Storyboarde
     }
     
     override func viewDidLoad() {
+        self.tableView.reloadData()
         super.viewDidLoad()
         self.tabBarItem = UITabBarItem(title: "Dynasty", image: UIImage(named: "dynastyDeckIcon"), tag: 0)
         
@@ -50,7 +51,9 @@ extension DynastyDeckBuilderVC {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "DeckBuilderCardTableViewCell", for: indexPath) as? DeckBuilderCardTableViewCell {
-            cell.setUpCell(indexPath: indexPath, availableCards: self.availableCards)
+            let card = availableCards[indexPath.row]
+            let cardCount = self.deck.dynastyDeck.filter({$0.id == card.id}).count
+            cell.setUpCell(indexPath: indexPath, availableCards: self.availableCards, cardCount: cardCount)
             return cell
         }
         
@@ -71,7 +74,6 @@ extension DynastyDeckBuilderVC {
         let selectedCardsInDeckCount = self.deck.dynastyDeck.filter({$0.id == card.id}).count
         
         if selectedCardsInDeckCount != numberOfCards {
-            
             self.deck.dynastyDeck.removeAll(where: {$0.id == card.id})
             
             if numberOfCards > 0 {
@@ -82,9 +84,8 @@ extension DynastyDeckBuilderVC {
                 }
             }
         }
-        
         print("There are now \(self.deck.dynastyDeck.filter({$0.id == card.id}).count) copies of \(card.id) in the dynasty deck.")
-        
+        self.tableView.reloadData()
     }
     
 }

@@ -48,7 +48,7 @@ class ConflictDeckBuilderVC: UITableViewController, Storyboarded {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "DeckBuilderCardTableViewCell", for: indexPath) as? DeckBuilderCardTableViewCell {
-            cell.setUpCell(indexPath: indexPath, availableCards: self.availableCards)
+            cell.setUpCell(indexPath: indexPath, availableCards: self.availableCards, cardCount: 0)
             return cell
         }
         
