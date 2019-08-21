@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol cardViewDelegate: class {
+protocol CardViewDelegate: class {
     func addCards(card: Card, numberOfCards: Int)
 }
 
@@ -22,7 +22,7 @@ class CardViewVC: UIViewController  {
     
     @IBOutlet weak var cardCountSegmentControl: UISegmentedControl!
     
-    weak var delegate: cardViewDelegate?
+    weak var delegate: CardViewDelegate?
     
     let card: Card
     var cardsCount: Int
@@ -91,5 +91,7 @@ class CardViewVC: UIViewController  {
         self.cardsCount = cardCountSegmentControl.selectedSegmentIndex
         print("\(cardsCount) \(card.id) cards selected.")
     }
+    
+    
     
 }

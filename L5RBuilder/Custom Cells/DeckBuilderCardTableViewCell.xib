@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="VZa-eq-aI6">
-                        <rect key="frame" x="5" y="5" width="339" height="136.5"/>
+                        <rect key="frame" x="5" y="5" width="359" height="136.5"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FQX-kU-DsP">
                                 <rect key="frame" x="0.0" y="19" width="71" height="98.5"/>
@@ -30,7 +30,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="NtM-7e-jNj">
-                                <rect key="frame" x="88" y="38.5" width="251" height="60"/>
+                                <rect key="frame" x="88" y="38.5" width="271" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTj-fO-lDp">
                                         <rect key="frame" x="0.0" y="0.0" width="170" height="60"/>
@@ -43,7 +43,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ywp-kW-hb5">
-                                        <rect key="frame" x="187" y="22.5" width="64" height="15"/>
+                                        <rect key="frame" x="187" y="22.5" width="84" height="15"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVG-v1-IWF">
                                                 <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -52,9 +52,12 @@
                                                     <constraint firstAttribute="width" constant="15" id="q9Y-je-IZq"/>
                                                 </constraints>
                                                 <state key="normal" title="RemoveCard" image="002-remove.png"/>
+                                                <connections>
+                                                    <action selector="removeCardTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YLW-wI-dba"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWU-NQ-mMN">
-                                                <rect key="frame" x="32" y="0.0" width="0.0" height="15"/>
+                                                <rect key="frame" x="32" y="0.0" width="35" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="35" id="W9W-Qy-whf"/>
                                                 </constraints>
@@ -63,12 +66,15 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUJ-Gd-AZD">
-                                                <rect key="frame" x="49" y="0.0" width="15" height="15"/>
+                                                <rect key="frame" x="84" y="0.0" width="0.0" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="15" id="cDl-BN-7QL"/>
                                                     <constraint firstAttribute="height" constant="15" id="f66-nj-snU"/>
                                                 </constraints>
                                                 <state key="normal" title="AddCard" image="001-add.png"/>
+                                                <connections>
+                                                    <action selector="addCardTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="miU-0t-UMy"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -90,9 +96,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="addCardButton" destination="lUJ-Gd-AZD" id="M9S-xg-wOt"/>
                 <outlet property="cardCountLabel" destination="DWU-NQ-mMN" id="l5m-SE-HZY"/>
                 <outlet property="cardImageView" destination="FQX-kU-DsP" id="crU-9i-Kst"/>
                 <outlet property="cardNameLabel" destination="MTj-fO-lDp" id="KLh-Rt-6ud"/>
+                <outlet property="removeCardButton" destination="bVG-v1-IWF" id="DUB-ey-UFH"/>
             </connections>
             <point key="canvasLocation" x="-1157.9710144927537" y="128.23660714285714"/>
         </tableViewCell>

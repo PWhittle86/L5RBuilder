@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class DynastyDeckBuilderVC: UITableViewController, cardViewDelegate, Storyboarded {
+class DynastyDeckBuilderVC: UITableViewController, CardViewDelegate, CardCellDelegate, Storyboarded {
 
     weak var coordinator: MainCoordinator?
     let db = DBHelper.sharedInstance
@@ -54,6 +54,7 @@ extension DynastyDeckBuilderVC {
             let card = availableCards[indexPath.row]
             let cardCount = self.deck.dynastyDeck.filter({$0.id == card.id}).count
             cell.setUpCell(indexPath: indexPath, availableCards: self.availableCards, cardCount: cardCount)
+            cell.delegate = self
             return cell
         }
         
@@ -86,6 +87,28 @@ extension DynastyDeckBuilderVC {
         }
         print("There are now \(self.deck.dynastyDeck.filter({$0.id == card.id}).count) copies of \(card.id) in the dynasty deck.")
         self.tableView.reloadData()
+    }
+    
+    func removeCardTapped(card: Card) {
+        print("Remove card button tapped(Tableview)")
+        let cardToRemove: Card = self.deck.dynastyDeck.filter({$0.id == card.id})[0]
+        let firstIndex = self.deck.dynastyDeck.index(of: cardToRemove)
+        if let foundCardIndex = firstIndex {
+            self.deck.dynastyDeck.remove(at: foundCardIndex)
+            let cardCount = self.deck.dynastyDeck.filter({$0.id == card.id}).count
+            print("There are now \(cardCount) copies of \(card.id) in the dynasty deck.")
+            self.tableView.reloadData()
+        }
+        
+    }
+    
+    func addCardTapped(card: Card) {
+        print("Add card button tapped(Tableview)")
+        self.deck.dynastyDeck.append(card)
+        let cardCount = self.deck.dynastyDeck.filter({$0.id == card.id}).count
+        print("There are now \(cardCount) copies of \(card.id) in the dynasty deck.")
+        self.tableView.reloadData()
+
     }
     
 }
