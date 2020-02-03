@@ -9,13 +9,14 @@
 import Foundation
 import RealmSwift
 
-class DBHelper{
+class DBHelper {
     
     //Singleton pattern.
     static let sharedInstance = DBHelper(dbPath: "cardDB")
     
     let DB: Realm
     var cardDBConfig = Realm.Configuration()
+    var cardsArray: Array<Card> = []
     
     private init(dbPath: String) {
         self.cardDBConfig.fileURL = cardDBConfig.fileURL!.deletingLastPathComponent().appendingPathComponent("\(dbPath).realm")
@@ -30,38 +31,81 @@ class DBHelper{
         return cards[0]
     }
     
-    func getAllCards() -> Results<Card> {
-        return self.DB.objects(Card.self)
+    func getAllCards() -> Array<Card> {
+        
+        cardsArray = []
+        let realmCards = self.DB.objects(Card.self)
+        
+        for card in realmCards {
+            cardsArray.append(card)
+        }
+        return cardsArray
     }
     
-    func getAllUnsavedImages() -> Results<Card> {
-        let cards = self.DB.objects(Card.self).filter("imageSavedLocally == \(false)")
-        return cards
+    func getAllUnsavedImages() -> Array<Card> {
+        
+        cardsArray = []
+        let realmCards = self.DB.objects(Card.self).filter("imageSavedLocally == \(false)")
+        
+        for card in realmCards {
+            cardsArray.append(card)
+        }
+        return cardsArray
     }
     
-    func getAllRoles() -> Results<Card> {
-        let cards = self.DB.objects(Card.self).filter("cardType = 'role'")
-        return cards
+    func getAllRoles() -> Array<Card> {
+        
+        cardsArray = []
+        let realmCards = self.DB.objects(Card.self).filter("cardType = 'role'")
+        
+        for card in realmCards {
+            cardsArray.append(card)
+        }
+        return cardsArray
     }
     
-    func getAllStrongholds() -> Results<Card> {
-        let cards = self.DB.objects(Card.self).filter("cardType = 'stronghold'")
-        return cards
+    func getAllStrongholds() -> Array<Card> {
+        
+        cardsArray = []
+        let realmCards = self.DB.objects(Card.self).filter("cardType = 'stronghold'")
+        
+        for card in realmCards {
+            cardsArray.append(card)
+        }
+        return cardsArray
     }
     
-    func getAllClanStrongholds(clan: String) -> Results<Card> {
-        let cards = self.DB.objects(Card.self).filter("cardType = 'stronghold' AND clan = '\(clan)'")
-        return cards
+    func getAllClanStrongholds(clan: String) -> Array<Card> {
+        
+        cardsArray = []
+        let realmCards = self.DB.objects(Card.self).filter("cardType = 'stronghold' AND clan = '\(clan)'")
+        
+        for card in realmCards {
+            cardsArray.append(card)
+        }
+        return cardsArray
     }
     
-    func getClanDynastyCards(clan: String) -> Results<Card> {
-        let cards = self.DB.objects(Card.self).filter("side = 'dynasty' AND (clan = '\(clan)' OR clan = 'neutral')")
-        return cards
+    func getClanDynastyCards(clan: String) -> Array<Card> {
+        
+        cardsArray = []
+        let realmCards = self.DB.objects(Card.self).filter("side = 'dynasty' AND (clan = '\(clan)' OR clan = 'neutral')")
+        
+        for card in realmCards {
+            cardsArray.append(card)
+        }
+        return cardsArray
     }
     
-    func getConflictCards() -> Results<Card> {
-        let cards = self.DB.objects(Card.self).filter("side = 'conflict'")
-        return cards
+    func getConflictCards() -> Array<Card> {
+
+        cardsArray = []
+        let realmCards = self.DB.objects(Card.self).filter("side = 'conflict'")
+        
+        for card in realmCards {
+            cardsArray.append(card)
+        }
+        return cardsArray
     }
     
     func addCard(card: Card){
@@ -76,7 +120,7 @@ class DBHelper{
         let backgroundRealm = try! Realm(configuration: self.cardDBConfig)
         let cards = backgroundRealm.objects(Card.self).filter("id == '\(card.id)'")
         
-        if cards.count > 0{
+        if !cards.isEmpty {
             let firstCard = cards[0]
             try! backgroundRealm.write {
                 backgroundRealm.delete(firstCard)
@@ -118,13 +162,14 @@ class DBHelper{
         let backgroundRealm = try! Realm(configuration: self.cardDBConfig)
         let queryResults = backgroundRealm.objects(Card.self).filter("id == '\(cardId)'")
         
-        if queryResults.count > 0{
+        if !queryResults.isEmpty {
             return true
         } else {
             return false
         }
     }
     
+    //TODO: Add logic for progress tracker when syncing from the back-end.
     //Download all cards from the fiveringsdb api.
     func downloadCards(){
         
@@ -144,7 +189,7 @@ class DBHelper{
                 let decoder = JSONDecoder()
                 let json = try decoder.decode(l5rJSON.self, from: data)
                 
-                //Should probably get rid of this.
+                //TODO: Should probably get rid of this.
                 var counter = 0
                 
                 for card in json.records{
@@ -170,7 +215,7 @@ class DBHelper{
                             dbCard.traits.append(prettyTrait)
                         }
                         
-                        let lastPackCardIndex = (card.pack_cards.count - 1) //This doesn't quite work atm. Way-of card images are being lost. Will do for the time being.
+                        let lastPackCardIndex = (card.pack_cards.count - 1) //TODO: rThis doesn't quite work atm. Way-of card images are being lost. Will do for the time being.
                         
                         if lastPackCardIndex >= 0{
                             dbCard.imageURL = card.pack_cards[lastPackCardIndex].image_url

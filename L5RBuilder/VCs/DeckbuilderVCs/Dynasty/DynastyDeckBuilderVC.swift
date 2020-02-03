@@ -14,7 +14,7 @@ class DynastyDeckBuilderVC: UITableViewController, CardViewDelegate, CardCellDel
     weak var coordinator: MainCoordinator?
     let db = DBHelper.sharedInstance
     var deck: Deck
-    var availableCards: Results<Card>
+    var availableCards: Array<Card>
     var dynastyDeckCardCount: Int
     
     init(deck: Deck) {

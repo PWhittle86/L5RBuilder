@@ -39,7 +39,7 @@ class DeckBuilderCardTableViewCell: UITableViewCell {
         return String(describing: self)
     }
     
-    func setUpCell(indexPath: IndexPath, availableCards: Results<Card>, cardCount: Int?){
+    func setUpCell(indexPath: IndexPath, availableCards: Array<Card>, cardCount: Int?){
         
         self.card = availableCards[indexPath.row]
         

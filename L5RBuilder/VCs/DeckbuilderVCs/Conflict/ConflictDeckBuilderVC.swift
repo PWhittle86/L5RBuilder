@@ -14,7 +14,7 @@ class ConflictDeckBuilderVC: UITableViewController, Storyboarded {
     weak var coordinator: MainCoordinator?
     let db = DBHelper.sharedInstance
     var deck: Deck
-    var availableCards: Results<Card>
+    var availableCards: Array<Card>
     
     init(deck: Deck) {
         self.deck = deck

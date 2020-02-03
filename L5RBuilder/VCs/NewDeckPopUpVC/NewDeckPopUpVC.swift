@@ -98,7 +98,7 @@ class NewDeckPopUpVC: UIViewController, Storyboarded {
     func allDataSelectedCheck(){
         guard let _ = self.selectedStronghold,
               let _ = self.selectedRole,
-              let _ = selectedClan else{
+              let _ = self.selectedClan else  {
                   return
         }
         self.navigationItem.rightBarButtonItem?.isEnabled = true

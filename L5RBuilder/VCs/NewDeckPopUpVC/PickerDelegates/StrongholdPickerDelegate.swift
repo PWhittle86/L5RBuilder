@@ -17,7 +17,7 @@ class StrongholdPickerDelegate: NSObject, UIPickerViewDelegate, UIPickerViewData
     
     weak var delegate: StrongholdDataDelegate?
     let db = DBHelper.sharedInstance
-    var strongholds: Results<Card>
+    var strongholds: Array<Card>
     var selectedStronghold: Card?
     
     override init() {

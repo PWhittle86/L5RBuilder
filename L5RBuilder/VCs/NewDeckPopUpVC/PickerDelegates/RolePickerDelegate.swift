@@ -16,7 +16,7 @@ import RealmSwift
 class RolePickerDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
     
     let db = DBHelper.sharedInstance
-    let allRoles: Results<Card>
+    let allRoles: Array<Card>
     var selectedRole: Card?
     weak var delegate: RoleDataDelegate?
     
