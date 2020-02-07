@@ -14,7 +14,11 @@ class ConflictDeckBuilderVC: UITableViewController, Storyboarded {
     weak var coordinator: MainCoordinator?
     let db = DBHelper.sharedInstance
     var deck: Deck
-    var availableCards: Array<Card>
+    var availableCards: [Card] = []
+    var conflictDeckCardCount = 0
+    
+    var filteredCards: [Card] = []
+    var isFiltering = false
     
     init(deck: Deck) {
         self.deck = deck
@@ -32,6 +36,7 @@ class ConflictDeckBuilderVC: UITableViewController, Storyboarded {
         super.viewDidLoad()
         
         let deckbuilderNib = UINib(nibName: "DeckBuilderCardTableViewCell", bundle: nil)
+        self.tabBarItem = UITabBarItem(title: "Conflict(\(conflictDeckCardCount))", image: UIImage(named: "conflictDeckIcon"), tag: 0)
         self.tableView.register(deckbuilderNib, forCellReuseIdentifier: "DeckBuilderCardTableViewCell")
     }
 
@@ -42,13 +47,29 @@ class ConflictDeckBuilderVC: UITableViewController, Storyboarded {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if isFiltering{
+            return filteredCards.count
+        }
         return availableCards.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "DeckBuilderCardTableViewCell", for: indexPath) as? DeckBuilderCardTableViewCell {
-            cell.setUpCell(indexPath: indexPath, availableCards: self.availableCards, cardCount: 0)
+            
+            var card: Card
+            
+            if isFiltering {
+                card = filteredCards[indexPath.row]
+            } else {
+                card = availableCards[indexPath.row]
+            }
+            
+            let cardCount = deck.conflictDeck.filter({$0.id == card.id}).count
+            
+            cell.setUpCell(indexPath: indexPath, card: card, cardCount: cardCount)
+            cell.delegate = self
             return cell
         }
         
@@ -56,50 +77,84 @@ class ConflictDeckBuilderVC: UITableViewController, Storyboarded {
         return cell
     }
 
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func filterContentForSearchText(_ searchText: String) {
+        filteredCards = availableCards.filter {(card: Card) -> Bool in
+            return card.name.lowercased().contains(searchText.lowercased())
+        }
+        tableView.reloadData()
     }
-    */
+    
+}
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+extension ConflictDeckBuilderVC: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+            
+        print("CONFLICT SEARCH FUNCTION WORKING")
+        
+            let searchBar = searchController.searchBar
+            if let searchedText = searchBar.text {
+                if searchedText.isEmpty{
+                    self.isFiltering = false
+                } else {
+                    self.isFiltering = true
+                    filterContentForSearchText(searchedText)
+                }
+            }
+        }
+}
+
+extension ConflictDeckBuilderVC: CardCellDelegate {
+    
+    func removeCardTapped(card: Card) {
+        print("Remove card button tapped(Tableview)")
+        let cardToRemove: Card = deck.conflictDeck.filter({$0.id == card.id})[0]
+        let firstIndex = deck.conflictDeck.index(of: cardToRemove)
+        if let foundCardIndex = firstIndex {
+            deck.conflictDeck.remove(at: foundCardIndex)
+            let cardCount = deck.conflictDeck.filter({$0.id == card.id}).count
+            print("There are now \(cardCount) copies of \(card.id) in the dynasty deck.")
+            
+            //Update total card count
+            conflictDeckCardCount = self.deck.conflictDeck.count
+            tabBarItem.title = "Conflict(\(self.conflictDeckCardCount))"
+            tableView.reloadData()
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    func addCardTapped(card: Card) {
+        print("Add card button tapped(Tableview)")
+        self.deck.conflictDeck.append(card)
+        let cardCount = self.deck.conflictDeck.filter({$0.id == card.id}).count
+        print("There are now \(cardCount) copies of \(card.id) in the conflict deck.")
+        
+        //Update total card count
+        self.conflictDeckCardCount = self.deck.conflictDeck.count
+        tabBarItem.title = "Conflict(\(self.conflictDeckCardCount))"
+        tableView.reloadData()
     }
-    */
+    
+}
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+extension ConflictDeckBuilderVC: CardViewDelegate {
+    
+    func addCards(card: Card, numberOfCards: Int) {
+        
+        let selectedCardsInDeckCount = deck.conflictDeck.filter({$0.id == card.id}).count
+        
+        if selectedCardsInDeckCount != numberOfCards {
+            deck.conflictDeck.removeAll(where: {$0.id == card.id})
+            
+            if numberOfCards > 0 {
+                var i = 0
+                while i < numberOfCards {
+                    deck.conflictDeck.append(card)
+                    i = i+1
+                }
+            }
+        }
+        print("There are now \(deck.conflictDeck.filter({$0.id == card.id}).count) copies of \(card.id) in the conflict deck.")
+        self.tableView.reloadData()
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

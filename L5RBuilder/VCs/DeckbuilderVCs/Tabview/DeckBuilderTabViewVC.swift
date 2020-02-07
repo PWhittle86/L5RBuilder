@@ -15,12 +15,19 @@ import UIKit
     let conflictBuilderVC: ConflictDeckBuilderVC
     var deck: Deck
     
+    //searchController Properties
+    let searchController: UISearchController
+    var isSearchBarEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+       }
+    
     init(dynastyBuilder: DynastyDeckBuilderVC, conflictBuilder: ConflictDeckBuilderVC, deck: Deck) {
         
         self.dynastyBuilderVC = dynastyBuilder
         self.conflictBuilderVC = conflictBuilder
         self.deck = deck
         
+        self.searchController = UISearchController(searchResultsController: nil)
         super.init(nibName: nil, bundle: nil)
         
         self.title = "Dynasty Deck"
@@ -36,6 +43,15 @@ import UIKit
         
         let searchButton = UIBarButtonItem(image: UIImage(named: "searchIcon30px"), style: .plain, target: self, action: #selector(self.searchFunction))
         self.navigationItem.rightBarButtonItems?.append(searchButton)
+        
+        //searchController setup:
+
+        searchController.searchResultsUpdater = self.dynastyBuilderVC
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search for a Card"
+
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
         
         let settingsButton = UIBarButtonItem(image: UIImage(named: "settingsIcon30px"), style: .plain, target: self, action: #selector(self.settingsFunction))
         self.navigationItem.rightBarButtonItems?.append(settingsButton)
@@ -72,9 +88,19 @@ import UIKit
         switch barItemIndex {
         case dynastyIndex:
             self.title = "Dynasty Deck"
+            self.searchController.searchResultsUpdater = dynastyBuilderVC
+            if !isSearchBarEmpty {
+                dynastyBuilderVC.updateSearchResults(for: searchController)
+            }
+            dynastyBuilderVC.tableView.reloadData()
             break
         case conflictIndex:
             self.title = "Conflict Deck"
+            self.searchController.searchResultsUpdater = conflictBuilderVC
+            if !isSearchBarEmpty {
+                dynastyBuilderVC.updateSearchResults(for: searchController)
+            }
+            conflictBuilderVC.tableView.reloadData()
             break
         default:
             self.title = "Deck Builder"

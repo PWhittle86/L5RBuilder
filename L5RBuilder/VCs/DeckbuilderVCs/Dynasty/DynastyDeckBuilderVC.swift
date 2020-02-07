@@ -14,13 +14,15 @@ class DynastyDeckBuilderVC: UITableViewController, CardViewDelegate, CardCellDel
     weak var coordinator: MainCoordinator?
     let db = DBHelper.sharedInstance
     var deck: Deck
-    var availableCards: Array<Card>
-    var dynastyDeckCardCount: Int
+    var availableCards: [Card] = []
+    var dynastyDeckCardCount = 0
+    
+    var filteredCards: [Card] = []
+    var isFiltering: Bool = false
     
     init(deck: Deck) {
         self.deck = deck
         availableCards = db.getClanDynastyCards(clan: deck.clan!)
-        self.dynastyDeckCardCount = 0
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -47,15 +49,27 @@ extension DynastyDeckBuilderVC {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if self.isFiltering {
+            return filteredCards.count
+        }
         return availableCards.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "DeckBuilderCardTableViewCell", for: indexPath) as? DeckBuilderCardTableViewCell {
-            let card = availableCards[indexPath.row]
+            
+            var card: Card
+            
+            if isFiltering{
+                card = filteredCards[indexPath.row]
+            } else {
+                card = availableCards[indexPath.row]
+            }
+            
             let cardCount = deck.dynastyDeck.filter({$0.id == card.id}).count
-            cell.setUpCell(indexPath: indexPath, availableCards: availableCards, cardCount: cardCount)
+            cell.setUpCell(indexPath: indexPath, card: card, cardCount: cardCount)
             cell.delegate = self
             return cell
         }
@@ -66,7 +80,14 @@ extension DynastyDeckBuilderVC {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let selectedCard = availableCards[indexPath.row]
+        var selectedCard: Card
+        
+        if isFiltering{
+            selectedCard = filteredCards[indexPath.row]
+        } else {
+            selectedCard = availableCards[indexPath.row]
+        }
+        
         let selectedCardsInDeckCount = deck.dynastyDeck.filter({$0.id == selectedCard.id}).count
         print("I clicked a card to edit. There are currently \(selectedCardsInDeckCount) copies of \(selectedCard.id) in the dynasty deck.")
         coordinator?.showDynastyCard(selectedCard: selectedCard, delegate: self, cardsInDeckCount: selectedCardsInDeckCount)
@@ -118,6 +139,32 @@ extension DynastyDeckBuilderVC {
         dynastyDeckCardCount = self.deck.dynastyDeck.count
         tabBarItem.title = "Dynasty(\(self.dynastyDeckCardCount))"
         tableView.reloadData()
+    }
+    
+    func filterContentForSearchText(_ searchText: String) {
+        filteredCards = availableCards.filter {(card: Card) -> Bool in
+            return card.name.lowercased().contains(searchText.lowercased())
+        }
+        tableView.reloadData()
+    }
+    
+}
+
+extension DynastyDeckBuilderVC: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        print("Dynasty search function working")
+        
+        let searchBar = searchController.searchBar
+        if let searchedText = searchBar.text {
+            if searchedText.isEmpty{
+                self.isFiltering = false
+            } else {
+                self.isFiltering = true
+                filterContentForSearchText(searchedText)
+            }
+        }
     }
     
 }

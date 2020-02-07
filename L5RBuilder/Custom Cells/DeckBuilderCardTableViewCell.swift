@@ -39,9 +39,9 @@ class DeckBuilderCardTableViewCell: UITableViewCell {
         return String(describing: self)
     }
     
-    func setUpCell(indexPath: IndexPath, availableCards: Array<Card>, cardCount: Int?){
+    func setUpCell(indexPath: IndexPath, card: Card, cardCount: Int?){
         
-        self.card = availableCards[indexPath.row]
+        self.card = card
         
         guard let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
             print("Error: Unable to access default documents URL.")
@@ -49,14 +49,14 @@ class DeckBuilderCardTableViewCell: UITableViewCell {
         }
         
         let imageFolderURL = documentsURL.appendingPathComponent("images", isDirectory: true)
-        let imageURL = imageFolderURL.appendingPathComponent(availableCards[indexPath.row].id).appendingPathExtension("jpg")
+        let imageURL = imageFolderURL.appendingPathComponent(card.id).appendingPathExtension("jpg")
         let locatedImage = UIImage(contentsOfFile: imageURL.path)
         
         let numberOfCards = cardCount ?? 0
         
         //TODO: Refactor this so that it's using the card property, rather than the instance within the array.
         self.cardImageView.image = locatedImage
-        self.cardNameLabel.text = availableCards[indexPath.row].name
+        self.cardNameLabel.text = card.name
         self.cardCountLabel.text = "\(numberOfCards)/3"
         
         canAddCardsCheck(cardsInDeck: numberOfCards)
@@ -65,7 +65,7 @@ class DeckBuilderCardTableViewCell: UITableViewCell {
     
     @IBAction func removeCardTapped(_ sender: Any) {
         if let selectedCard = card,
-            let delegate = delegate {
+            let _ = delegate {
             self.delegate?.removeCardTapped(card: selectedCard)
         }
     }
