@@ -67,6 +67,12 @@ class MainCoordinator: NSObject, Coordinator {
         navigationController.present(cardViewVC, animated: true, completion: nil)
     }
     
+    func showConflictCard(selectedCard: Card, delegate: ConflictDeckBuilderVC, cardsInDeckCount: Int) {
+        
+        let cardViewVC = CardViewVC(card: selectedCard, cardCount: cardsInDeckCount)
+        cardViewVC.delegate = delegate
+        navigationController.present(cardViewVC, animated: true, completion: nil)
+    }
 }
 
 extension MainCoordinator: UINavigationControllerDelegate {

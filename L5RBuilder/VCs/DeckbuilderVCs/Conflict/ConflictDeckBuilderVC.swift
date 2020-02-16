@@ -15,7 +15,9 @@ class ConflictDeckBuilderVC: UITableViewController, Storyboarded {
     let db = DBHelper.sharedInstance
     var deck: Deck
     var availableCards: [Card] = []
-    var conflictDeckCardCount = 0
+    var conflictDeckCardCount: Int {
+        self.deck.conflictDeck.count
+    }
     
     var filteredCards: [Card] = []
     var isFiltering = false
@@ -37,6 +39,8 @@ class ConflictDeckBuilderVC: UITableViewController, Storyboarded {
         
         let deckbuilderNib = UINib(nibName: "DeckBuilderCardTableViewCell", bundle: nil)
         self.tabBarItem = UITabBarItem(title: "Conflict(\(conflictDeckCardCount))", image: UIImage(named: "conflictDeckIcon"), tag: 0)
+        updateTabBarItemTitle()
+        
         self.tableView.register(deckbuilderNib, forCellReuseIdentifier: "DeckBuilderCardTableViewCell")
     }
 
@@ -77,6 +81,30 @@ class ConflictDeckBuilderVC: UITableViewController, Storyboarded {
         return cell
     }
 
+    func updateTabBarItemTitle(){
+        
+        if self.conflictDeckCardCount == 0 {
+            self.tabBarItem.title = "Conflict"
+        } else {
+            self.tabBarItem.title = "Conflict(\(conflictDeckCardCount))"
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        var selectedCard: Card
+        
+        if isFiltering{
+            selectedCard = filteredCards[indexPath.row]
+        } else {
+            selectedCard = availableCards[indexPath.row]
+        }
+        
+        let selectedCardsInDeckCount = deck.conflictDeck.filter({$0.id == selectedCard.id}).count
+        print("I clicked a card to edit. There are currently \(selectedCardsInDeckCount) copies of \(selectedCard.id) in the dynasty deck.")
+        coordinator?.showConflictCard(selectedCard: selectedCard, delegate: self, cardsInDeckCount: selectedCardsInDeckCount)
+    }
+    
     func filterContentForSearchText(_ searchText: String) {
         filteredCards = availableCards.filter {(card: Card) -> Bool in
             return card.name.lowercased().contains(searchText.lowercased())
@@ -101,6 +129,7 @@ extension ConflictDeckBuilderVC: UISearchResultsUpdating {
                     filterContentForSearchText(searchedText)
                 }
             }
+        self.tableView.reloadData()
         }
 }
 
@@ -116,8 +145,7 @@ extension ConflictDeckBuilderVC: CardCellDelegate {
             print("There are now \(cardCount) copies of \(card.id) in the dynasty deck.")
             
             //Update total card count
-            conflictDeckCardCount = self.deck.conflictDeck.count
-            tabBarItem.title = "Conflict(\(self.conflictDeckCardCount))"
+            updateTabBarItemTitle()
             tableView.reloadData()
         }
     }
@@ -129,8 +157,7 @@ extension ConflictDeckBuilderVC: CardCellDelegate {
         print("There are now \(cardCount) copies of \(card.id) in the conflict deck.")
         
         //Update total card count
-        self.conflictDeckCardCount = self.deck.conflictDeck.count
-        tabBarItem.title = "Conflict(\(self.conflictDeckCardCount))"
+        updateTabBarItemTitle()
         tableView.reloadData()
     }
     
@@ -154,6 +181,7 @@ extension ConflictDeckBuilderVC: CardViewDelegate {
             }
         }
         print("There are now \(deck.conflictDeck.filter({$0.id == card.id}).count) copies of \(card.id) in the conflict deck.")
+        updateTabBarItemTitle()
         self.tableView.reloadData()
     }
     

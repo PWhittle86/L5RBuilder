@@ -15,7 +15,9 @@ class DynastyDeckBuilderVC: UITableViewController, CardViewDelegate, CardCellDel
     let db = DBHelper.sharedInstance
     var deck: Deck
     var availableCards: [Card] = []
-    var dynastyDeckCardCount = 0
+    var dynastyDeckCardCount: Int {
+        self.deck.dynastyDeck.count
+    }
     
     var filteredCards: [Card] = []
     var isFiltering: Bool = false
@@ -33,7 +35,13 @@ class DynastyDeckBuilderVC: UITableViewController, CardViewDelegate, CardCellDel
     override func viewDidLoad() {
         self.tableView.reloadData()
         super.viewDidLoad()
-        self.tabBarItem = UITabBarItem(title: "Dynasty(\(dynastyDeckCardCount))", image: UIImage(named: "dynastyDeckIcon"), tag: 0)
+        
+        var tabBarTitle = "Dynasty"
+        if self.dynastyDeckCardCount != 0 {
+            tabBarTitle = "Dynasty(\(dynastyDeckCardCount))"
+        }
+        
+        self.tabBarItem = UITabBarItem(title: tabBarTitle, image: UIImage(named: "dynastyDeckIcon"), tag: 0)
         
         let deckbuilderNib = UINib(nibName: "DeckBuilderCardTableViewCell", bundle: nil)
         self.tableView.register(deckbuilderNib, forCellReuseIdentifier: "DeckBuilderCardTableViewCell")
@@ -109,6 +117,7 @@ extension DynastyDeckBuilderVC {
             }
         }
         print("There are now \(deck.dynastyDeck.filter({$0.id == card.id}).count) copies of \(card.id) in the dynasty deck.")
+        updateTabBarItemTitle()
         self.tableView.reloadData()
     }
     
@@ -121,12 +130,9 @@ extension DynastyDeckBuilderVC {
             let cardCount = deck.dynastyDeck.filter({$0.id == card.id}).count
             print("There are now \(cardCount) copies of \(card.id) in the dynasty deck.")
             
-            //Update total card count
-            dynastyDeckCardCount = self.deck.dynastyDeck.count
-            tabBarItem.title = "Dynasty(\(self.dynastyDeckCardCount))"
+            updateTabBarItemTitle()
             tableView.reloadData()
         }
-        
     }
     
     func addCardTapped(card: Card) {
@@ -136,8 +142,7 @@ extension DynastyDeckBuilderVC {
         print("There are now \(cardCount) copies of \(card.id) in the dynasty deck.")
         
         //Update total card count
-        dynastyDeckCardCount = self.deck.dynastyDeck.count
-        tabBarItem.title = "Dynasty(\(self.dynastyDeckCardCount))"
+        updateTabBarItemTitle()
         tableView.reloadData()
     }
     
@@ -146,6 +151,15 @@ extension DynastyDeckBuilderVC {
             return card.name.lowercased().contains(searchText.lowercased())
         }
         tableView.reloadData()
+    }
+    
+    func updateTabBarItemTitle(){
+        
+        if self.dynastyDeckCardCount == 0 {
+            self.tabBarItem.title = "Dynasty"
+        } else {
+            self.tabBarItem.title = "Dynasty(\(dynastyDeckCardCount))"
+        }
     }
     
 }
@@ -165,6 +179,9 @@ extension DynastyDeckBuilderVC: UISearchResultsUpdating {
                 filterContentForSearchText(searchedText)
             }
         }
+        self.tableView.reloadData()
     }
+    
+    
     
 }

@@ -38,37 +38,33 @@ import UIKit
     }
 
     override func viewDidLoad() {
-        self.viewControllers = [dynastyBuilderVC, conflictBuilderVC]
-        super.viewDidLoad()
+
+        self.setViewControllers([dynastyBuilderVC, conflictBuilderVC], animated: false) 
         
         let searchButton = UIBarButtonItem(image: UIImage(named: "searchIcon30px"), style: .plain, target: self, action: #selector(self.searchFunction))
         self.navigationItem.rightBarButtonItems?.append(searchButton)
+        
+        let settingsButton = UIBarButtonItem(image: UIImage(named: "settingsIcon30px"), style: .plain, target: self, action: #selector(self.settingsFunction))
+        self.navigationItem.rightBarButtonItems?.append(settingsButton)
+        self.navigationItem.setRightBarButtonItems([settingsButton, searchButton], animated: true)
         
         //searchController setup:
 
         searchController.searchResultsUpdater = self.dynastyBuilderVC
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search for a Card"
-
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
-        let settingsButton = UIBarButtonItem(image: UIImage(named: "settingsIcon30px"), style: .plain, target: self, action: #selector(self.settingsFunction))
-        self.navigationItem.rightBarButtonItems?.append(settingsButton)
-        
-        self.navigationItem.setRightBarButtonItems([settingsButton, searchButton], animated: true)
-        
+//        //TODO: Find out why image isn't appearing, and find a better bugfix than selecting conflictVC before the view loads.
+        self.selectedViewController = conflictBuilderVC
+        self.selectedViewController = dynastyBuilderVC
+        super.viewDidLoad()
 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-        //TODO: Find out why image isn't appearing, and find a better bugfix than selecting conflictVC before the view loads.
-        self.selectedViewController = conflictBuilderVC
-        self.selectedViewController = dynastyBuilderVC
-    }
-    
     @objc func searchFunction(){
+        self.searchController.searchBar
         print("SEARCH FUNCTION WORKING")
     }
     
@@ -89,17 +85,13 @@ import UIKit
         case dynastyIndex:
             self.title = "Dynasty Deck"
             self.searchController.searchResultsUpdater = dynastyBuilderVC
-            if !isSearchBarEmpty {
-                dynastyBuilderVC.updateSearchResults(for: searchController)
-            }
+            dynastyBuilderVC.updateSearchResults(for: searchController)
             dynastyBuilderVC.tableView.reloadData()
             break
         case conflictIndex:
             self.title = "Conflict Deck"
             self.searchController.searchResultsUpdater = conflictBuilderVC
-            if !isSearchBarEmpty {
-                dynastyBuilderVC.updateSearchResults(for: searchController)
-            }
+            conflictBuilderVC.updateSearchResults(for: searchController)
             conflictBuilderVC.tableView.reloadData()
             break
         default:
