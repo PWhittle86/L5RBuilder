@@ -25,7 +25,7 @@ class Card: Object {
     @objc dynamic var roleRestriction: String? = ""
     
     //Conflict & Dynasty Properties
-    let cost = RealmOptional<Int>()
+    @objc dynamic var cost: String? = nil
     let glory = RealmOptional<Int>()
     let traits = List<String?>()
     @objc dynamic var strengthBonus: String? = nil

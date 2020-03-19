@@ -43,19 +43,11 @@ class DeckBuilderCardTableViewCell: UITableViewCell {
         
         self.card = card
         
-        guard let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-            print("Error: Unable to access default documents URL.")
-            return
-        }
-        
-        let imageFolderURL = documentsURL.appendingPathComponent("images", isDirectory: true)
-        let imageURL = imageFolderURL.appendingPathComponent(card.id).appendingPathExtension("jpg")
-        let locatedImage = UIImage(contentsOfFile: imageURL.path)
+        configureCellImage(card: card)
         
         let numberOfCards = cardCount ?? 0
         
         //TODO: Refactor this so that it's using the card property, rather than the instance within the array.
-        self.cardImageView.image = locatedImage
         self.cardNameLabel.text = card.name
         self.cardCountLabel.text = "\(numberOfCards)/3"
         
@@ -91,5 +83,23 @@ class DeckBuilderCardTableViewCell: UITableViewCell {
         } else {
             self.addCardButton.isEnabled = true
         }
+    }
+    
+    func configureCellImage(card: Card) {
+        
+        guard let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            print("Error: Unable to access default documents URL.")
+            return
+        }
+        
+        let imageFolderURL = documentsURL.appendingPathComponent("images", isDirectory: true)
+        let imageURL = imageFolderURL.appendingPathComponent(card.id).appendingPathExtension("jpg")
+        if let locatedImage = UIImage(contentsOfFile: imageURL.path) {
+            self.cardImageView.image = locatedImage
+        } else {
+            self.cardImageView.image = UIImage(named: "No_Image.jpg")
+        }
+        
+
     }
 }

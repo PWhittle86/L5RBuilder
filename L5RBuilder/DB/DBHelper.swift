@@ -229,6 +229,7 @@ class DBHelper {
                         dbCard.strengthBonus = card.strength_bonus
                         dbCard.strength = card.strength
                         dbCard.roleRestriction = card.role_restriction
+                        dbCard.cost = card.cost
                         
                         dbCard.honor.value = card.honor
                         dbCard.fate.value = card.fate
@@ -236,7 +237,6 @@ class DBHelper {
                         
                         //Optional ints
                         
-                        dbCard.cost.value = card.cost
                         dbCard.glory.value = card.glory
                         
                         self.addCard(card: dbCard)

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,6 +27,7 @@
 		223749802269ECB30053B244 /* ClanPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2237497F2269ECB30053B244 /* ClanPickerDelegate.swift */; };
 		223749822269ED060053B244 /* StrongholdPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223749812269ED060053B244 /* StrongholdPickerDelegate.swift */; };
 		223749842269ED180053B244 /* RolePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223749832269ED180053B244 /* RolePickerDelegate.swift */; };
+		223CF78924237E1900F730EA /* No_Image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 223CF78824237E1900F730EA /* No_Image.jpg */; };
 		223F700E22B796C9007D7429 /* DeckBuilderCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223F700C22B796C9007D7429 /* DeckBuilderCardTableViewCell.swift */; };
 		223F700F22B796C9007D7429 /* DeckBuilderCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223F700D22B796C9007D7429 /* DeckBuilderCardTableViewCell.xib */; };
 		223F701322BFCCC6007D7429 /* settingsIcon30px.png in Resources */ = {isa = PBXBuildFile; fileRef = 223F701222BFCCC6007D7429 /* settingsIcon30px.png */; };
@@ -88,6 +89,7 @@
 		2237497F2269ECB30053B244 /* ClanPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanPickerDelegate.swift; sourceTree = "<group>"; };
 		223749812269ED060053B244 /* StrongholdPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrongholdPickerDelegate.swift; sourceTree = "<group>"; };
 		223749832269ED180053B244 /* RolePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolePickerDelegate.swift; sourceTree = "<group>"; };
+		223CF78824237E1900F730EA /* No_Image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = No_Image.jpg; sourceTree = "<group>"; };
 		223F700C22B796C9007D7429 /* DeckBuilderCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckBuilderCardTableViewCell.swift; sourceTree = "<group>"; };
 		223F700D22B796C9007D7429 /* DeckBuilderCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeckBuilderCardTableViewCell.xib; sourceTree = "<group>"; };
 		223F701222BFCCC6007D7429 /* settingsIcon30px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsIcon30px.png; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		2209DABE2232C63C00755906 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				223CF78824237E1900F730EA /* No_Image.jpg */,
 				2267748A2306E58E00095EA4 /* 001-add.png */,
 				226774892306E58E00095EA4 /* 002-remove.png */,
 				227EF0FB22EB42C800275DD6 /* cancelIcon.png */,
@@ -473,6 +476,7 @@
 				2232E9C32271FC0400EB0D0C /* icons8-pagoda-60.png in Resources */,
 				222AE28021B19DA800C75868 /* Podfile in Resources */,
 				22E8791B21944F63000EC7C3 /* Main.storyboard in Resources */,
+				223CF78924237E1900F730EA /* No_Image.jpg in Resources */,
 				223F700F22B796C9007D7429 /* DeckBuilderCardTableViewCell.xib in Resources */,
 				2232E9C42271FC0400EB0D0C /* icons8-pagoda-90.png in Resources */,
 				2232E9BE2271FBF900EB0D0C /* icons8-attack-30.png in Resources */,

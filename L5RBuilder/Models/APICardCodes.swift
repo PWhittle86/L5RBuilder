@@ -22,7 +22,7 @@ struct CardData : Codable{
     let role_restriction: String?
     
     //Conflict & Dynasty Properties
-    let cost: Int?
+    let cost: String?
     let glory: Int?
     var traits: Array <String>
     let unicity: Bool
